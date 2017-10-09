@@ -1,211 +1,233 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>SRS Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!--custom styles -->
     <link href="css/custom.css" rel="stylesheet" media="screen">
-  </head>
+</head>
 
-  <body background-color:#ffffff>
+<body background-color:#ffffff>
     <section class="row">
-      <div class="col-sm-1"></div>
-      <div class="col-sm-10 ">
-        <article class="text-center">
-          <h1 >Software Requirements Specification</h1>
-          <h3>              for          </h3>
-          <h1> Agriculture Microfinance</h1>
-         
-          <h3>Prepared by <!-- &lt;author&gt; --></h3>
-          <h4>Nazmul Alam Diptu</h4>
-          <h4>Md Naimul Islam</h4>
-          <h4>Mysha Rahman</h4>
-          <h4>Ameer Ul Islam</h4>
-          <h4>Nazmul Hoq</h4>
-        </article>
-          <h1>Table of Contents</h1>
-          <p>Table of Contents ii</p>
-         <p> Revision History  ii</p>
-          <ol>
-            <li><a href="#1">Introduction</a>
-                <ol>
-                  <li><a href="#1.1">Purpose</a></li>
-                  <li><a href="#1.2">Document Conventions</a></li>
-                  <li><a href="#1.3">Intended Audience and Reading Suggestions</a></li>
-                  <li><a href="#1.4">Product Scope</a></li>
-                </ol>
-            </li>
-            <li><a href="#2">Overall Description</a>
-                <ol>
-                  <li><a href="#2.1">Product Perspective</a></li>
-                  <li><a href="#2.2">Product Functions</a></li>
-                  <li><a href="#2.3">User Classes and Characteristics</a></li>
-                  <li><a href="#2.4">Operating Environment</a></li>
-                  <li><a href="#2.5">Design and Implementation Constraints</a></li>
-                  <li><a href="#2.6">User Documentation</a></li>
-                  <li><a href="#2.7">Assumptions and Dependencies</a></li>
-                </ol>
-            </li>
-            <li><a href="#3">External Interface Requirements</a>
-                <ol>
-                  <li><a href="#3.1">User Interfaces</a></li>
-                  <li><a href="#3.2">Hardware Interfaces</a></li>
-                  <li><a href="#3.3">Software Interfaces</a></li>
-                  <li><a href="#3.4">Communications Interfaces</a></li>
-                </ol>
-            </li>
-            <li><a href="#4">System Features</a>
-                <ol>
-                  <li><a href="#4.1">System Feature 1</a></li>
-                  <li><a href="#4.2">System Feature 2 (and so on)</a></li>
-                </ol>
-            </li>
-            <li><a href="#5">Other Nonfunctional Requirements</a>
-                <ol>
-                  <li><a href="#5.1">Performance Requirements</a></li>
-                  <li><a href="#5.2">Safety Requirements</a></li>
-                  <li><a href="#5.3">Security Requirements</a></li>
-                  <li><a href="#5.4">Software Quality Attributes</a></li>
-                  <li><a href="#5.5">Business Rules</a></li>
-                </ol>
-            </li>
-            <li><a href="#6">Other Requirements</a></li>
-          </ol>
-          <p><a href="#AppA">Appendix A: Glossary</a></p>
-          <p><a href="#AppB">Appendix B: Analysis Models</a></p>
-          <p><a href="#AppC">Appendix C: To Be Determined List</a></p>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 ">
+            <article class="text-center">
+                <h1>Software Requirements Specification</h1>
+                <h3>              for          </h3>
+                <h1> Agriculture Microfinance</h1>
 
-          <h3>Revision History</h3>
-          <table class="table-bordered table">
-            <tr>
-              <th>Name</th>
-              <th>Date</th>
-              <th>Reason For Changes</th>
-              <th>Version</th>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </table>
-
-          <ol>
-            <li id="1">Introduction
-              <ol>
-                <li id="1.1">Purpose </li>
-                <p>The purpose of this Software Requirements Specification (SRS) document is to give a detailed description of the requirements for the “Agriculture
-                    Microfiinance” (AMF) software. It will illustrate the purpose and complete declaration for the
-                    development of system. It will also explain system constraints, interface and interactions with other
-                    external applications. This document is primarily intended to be a reference for developing the first version of the system for the development team</p>
-                <li id="1.2">Document Conventions</li>
-                <p>The software does not offer any new terminology making it more user friendly. Anybody with experience of using internet is expected to be able to use the software. </p>
-                <li id="1.3">Intended Audience and Reading Suggestions</li>
-                <p>This document is intended for all individuals participating in the AMF project. Readers interested in a brief overview of the product should focus on the rest Introduction, as well the Overall Description, which provide a brief overview of each aspect of the project as a whole.</p>
-                <p>Readers who wish to explore the features of AMF in more detail should read the System Features, which expands upon the information laid out in the main overview. Part 3 `(External Interface Requirements) offers further technical details, including information on the user interface as well as the hardware and software platforms on which the application will run.
-                </p>
-                <li id="1.4">Product Scope</li>
-                <p>The AMF system aims to create opportunities for mass population to invest on agriculture.
-The system is composed of a client side application which will run on both android and web.
-They system is designed to facilitate the process of crowd funding. Potential scenerios include paying online, data visualization, previous season's transactins etc. More information is given below.</p>
-              </ol>
-            </li>
-            <li id="2">Overall Description
-              <ol>
-                <li id="2.1">Product Perspective</li>
-                <p>The product is a standalone software and not an additonal package.
-This is a new system compared to traditional agriculture financing systems.</p>
-                <li id="2.2">Product Functions</li>
-                <p>The product is a software which allows farmers to get investment.
-It allows investors to make small scale investment in agriculture.
-It allows us to predict future profit margins based on previous data of transactions
-It allows us to assess risk when it comes to making investment in agriculture.</p>
-                <li id="2.3">User Classes and Characteristics</li>
-                <p>There are mainly two two types of users.
-Farmers can open accounts and post new business incentives.
-Investors can look up profit margins and risk factors for different crops as well as make investments</p>
-                <li id="2.4">Operating Environment</li>
-                <p>The primary source of interaction is an Android app, which allows an any user to use the product without much technological knowledge. However a webiste serves as the backend of the app and can be acceseed via any browser.Design and Implementation Constraints</p>
-                <li id="2.5">Design and Implementation Constraints</li>
-                <p>Implemantation at a large scale required human resourse as agents in user level where developers have a very few option to make an impact if there is any . To implemet our prediction or recommended system needs large data set for better accuracy . </p>
-                <li id="2.6">User Documentation</li>
-                <p>An SRS is uploaded as an html file which allows users to look up different parts of the software as well as get more sources for information.</p>
-                <li id="2.7">Assumptions and Dependencies</li>
-                <p>Fraud farmers are susceptible to high risk, as there is no guarantee of fair financial transactions without verification.
-Investments are subjected to market risks. Natural disasters and other factors can be devastating to the agriculture industry.Avertaisment can leads to earn revinew </p>
-              </ol>
-            </li>
-            <li id="3">External Interface Requirements
-              <ol>
-                <li id="3.1">User Interfaces</li>
-                <p>{Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.}</p>
-                <li id="3.2">Hardware Interfaces</li>
-                <p>{Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.}</p>
-                <li id="3.3">Software Interfaces</li>
-                <p>{Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.}</p>
-                <li id="3.4">Communications Interfaces</li>
-                <p>{Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.}</p>
-              </ol>
-            </li>
-            <li id="4">System Features
-              <p>{This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.}</p>
-              <ol>
-                  <li id="4.1">System Feature 1
-                    <p>{Don’t really say “System Feature 1.” State the feature name in just a few words.}</p>
+                <h3>Prepared by <!-- &lt;author&gt; --></h3>
+                <h4>Nazmul Alam Diptu</h4>
+                <h4>Md Naimul Islam   ID#1512235642</h4>
+                <h4>Mysha Rahman      ID#1330012642</h4>
+                <h4>Ameer Ul Islam    </h4>
+                <h4>Najmul Hoq        ID#1520836642</h4>
+            </article>
+            <h3>Table of Contents</h3>
+            <!-- <p>Table of Contents</p> -->
+            <ol>
+                <li><a href="#1">Introduction</a>
                     <ol>
-                      <li>Description and Priority</li>
-                      <p>{Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).}</p>
-                      <li>Stimulus/Response Sequences</li>
-                      <p>{List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.}</p>
-                      <li>Functional Requirements</li>
-                      <p>{Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.}</p>
-                      <p>{Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.}</p>
-                      <p>REQ-1:</p>
-                      <p>REQ-2:</p>
+                        <li><a href="#1.1">Purpose</a></li>
+                        <li><a href="#1.2">Document Conventions</a></li>
+                        <li><a href="#1.3">Intended Audience and Reading Suggestions</a></li>
+                        <li><a href="#1.4">Product Scope</a></li>
                     </ol>
-                  </li>
-                  <li  id="4.2">System Feature 2 (and so on)</li>
-              </ol>
-            </li>
-            <li  id="5">Other Nonfunctional Requirements
-              <ol>
-                <li id="5.1">Performance Requirements</li>
-                <p>Performance should not be an issue because all of our server queries involve small pieces of data. Changing screens will require very little computation and thus will occur very quickly.Server updates should only take a few seconds as long as the phone can maintain a steady signal. The cost-division algorithms used by in application will be highly efficient,takling only a fraction of a second to compute.</p>}</p>
-                <li id="5.2">Safety Requirements</li>
-                <p> The application will not affect data stored outside of its server nor will it affect any other applications installed on the user's phone.It cannot cause any damage to the phone or its internal components.The only potential safety concern associated with this applicaion applies to virtually all handset apps:This app shouldnot be used while operating a vehicle or in any other situation where the user's attention must be focused elsewhere.</p>
-                <li id="5.3">Security Requirements</li>
-                <p>This application assumes that only the user or whoever he/she allows will have access to his/her android handset.With that being said,Google email address is required to verify the identity of the user upon opening the app.Also it is protected by password.The user needs to verfy that he is a farmer and need to enter the app by a registration process,which will keep information about his personal details and he has to register his name in the government list as a farmer.So he have to register in the app by his registation farmer number.  </p>
-                <li id="5.4">Software Quality Attributes</li>
-                <p>The graphical user interface of the app is to be designed with usability as the first priority.The app will be presented and organized in a manner that is visually appealing and easy to navigate.There will be feedbacks and visual cues such as notifications to inform users of updates and pop-ups to provide users with instructions.To maintain flexibility and adaptability,the app will take into account situations in which a user loses internet connection or for watever reason cannot establish a connection with the server.These user will still be able to use the application but any transactions etc. posted while disconnected will be cached until the connection is restored.</p>
-                <li  id="5.5">Business Rules</li>
-                <p> Transaction will be done by bank acount,mastercard,bikash.Transperacy will be maintained by both buyers and farmers.Buyers and farmers can easily access to all informations.A team of expertise will monitor the budget and swot(strength,weakness,oppourtunities and threats). Which will be beneficial for both organization and buyer in the long run.</p>
-              </ol>
-            </li>
-            <li id="6">Other Requirements</li>
-            {Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.}
-          </ol>
-          <h2 id="AppA">Appendix A: Glossary</h2>
-          <p>{Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish to build a separate glossary that spans multiple projects or the entire organization, and just include terms specific to a single project in each SRS.}</p>
-          <h2 id="AppB">Appendix B: Analysis Models</h2>
-          <p>{Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.}</p>
-          <h2 id="AppC">Appendix C: To Be Determined List</h2>
-          <p>{Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.}</p>
+                </li>
+                <li><a href="#2">Overall Description</a>
+                    <ol>
+                        <li><a href="#2.1">Product Perspective</a></li>
+                        <li><a href="#2.2">Product Functions</a></li>
+                        <li><a href="#2.3">User Classes and Characteristics</a></li>
+                        <li><a href="#2.4">Operating Environment</a></li>
+                        <li><a href="#2.5">Design and Implementation Constraints</a></li>
+                        <li><a href="#2.6">User Documentation</a></li>
+                        <li><a href="#2.7">Assumptions and Dependencies</a></li>
+                    </ol>
+                </li>
+                <li><a href="#3">External Interface Requirements</a>
+                    <ol>
+                        <li><a href="#3.1">User Interfaces</a></li>
+                        <li><a href="#3.2">Hardware Interfaces</a></li>
+                        <li><a href="#3.3">Software Interfaces</a></li>
+                        <li><a href="#3.4">Communications Interfaces</a></li>
+                    </ol>
+                </li>
+                <li><a href="#4">System Features</a>
+                    <ol>
+                        <li><a href="#4.1">Farmer Profile</a></li>
+                        <li><a href="#4.2">Land Profile</a></li>
+                        <li><a href="#4.3">Market</a></li>
+                        <li><a href="#4.4">Response Sequences</a></li>
+                    </ol>
+                </li>
+                <li><a href="#5">Other Nonfunctional Requirements</a>
+                    <ol>
+                        <li><a href="#5.1">Performance Requirements</a></li>
+                        <li><a href="#5.2">Safety Requirements</a></li>
+                        <li><a href="#5.3">Security Requirements</a></li>
+                        <li><a href="#5.4">Software Quality Attributes</a></li>
+                        <li><a href="#5.5">Business Rules</a></li>
+                    </ol>
+                </li>
+            </ol>
+            <p><a href="#AppA">Appendix A: To Be Determined List</a></p>
+
+            <!-- <h3>Revision History</h3>
+            <table class="table-bordered table">
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Reason For Changes</th>
+                    <th>Version</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table> -->
+
+            <ol>
+                <li id="1">Introduction
+                    <ol>
+                        <li id="1.1">Purpose </li>
+                        <p>The purpose of this Software Requirements Specification (SRS) document is to give a detailed description of the requirements for the “Agriculture Microfiinance” (AMF) software. It will illustrate the purpose and complete declaration
+                            for the development of system. It will also explain system constraints, interface and interactions with other external applications. This document is primarily intended to be a reference for developing the first version of
+                            the system for the development team</p>
+                        <li id="1.2">Document Conventions</li>
+                        <p>The software does not offer any new terminology making it more user friendly. Anybody with experience of using internet is expected to be able to use the software. </p>
+                        <li id="1.3">Intended Audience and Reading Suggestions</li>
+                        <p>This document is intended for all individuals participating in the AMF project. Readers interested in a brief overview of the product should focus on the rest Introduction, as well the Overall Description, which provide a brief
+                            overview of each aspect of the project as a whole.</p>
+                        <p>Readers who wish to explore the features of AMF in more detail should read the System Features, which expands upon the information laid out in the main overview. Part 3 `(External Interface Requirements) offers further technical
+                            details, including information on the user interface as well as the hardware and software platforms on which the application will run.
+                        </p>
+                        <li id="1.4">Product Scope</li>
+                        <p>The AMF system aims to create opportunities for mass population to invest on agriculture. The system is composed of a client side application which will run on both android and web. They system is designed to facilitate the process
+                            of crowd funding. Potential scenerios include paying online, data visualization, previous season's transactins etc. More information is given below.</p>
+                    </ol>
+                </li>
+                <li id="2">Overall Description
+                    <ol>
+                        <li id="2.1">Product Perspective</li>
+                        <p>The product is a standalone software and not an additonal package. This is a new system compared to traditional agriculture financing systems.</p>
+                        <li id="2.2">Product Functions</li>
+                        <p>The product is a software which allows farmers to get investment. It allows investors to make small scale investment in agriculture. It allows users to predict future profit margins based on previous data of transactions It allows
+                            users to assess risk when it comes to making investment in agriculture.</p>
+                        <li id="2.3">User Classes and Characteristics</li>
+                        <p>There are mainly two two types of users. Farmers can open accounts and post new business incentives. Investors can look up profit margins and risk factors for different crops as well as make investments</p>
+                        <li id="2.4">Operating Environment</li>
+                        <p>The primary source of interaction is an web app, which allows an any user to use the product without much technological knowledge. However an android application extends the usability of the software. </p>
+                        <li id="2.5">Design and Implementation Constraints</li>
+                        <p>Implemantation at a large scale required human resourse as agents in user level where developers have a very few option to make an impact if there is any . To implemet our prediction or recommended system needs large data set for
+                            better accuracy . </p>
+                        <li id="2.6">User Documentation</li>
+                        <p>A Software Requirements and Specification(SRS) file is uploaded as an html file which allows users to look up different parts of the software as well as get more sources for information.</p>
+                        <li id="2.7">Assumptions and Dependencies</li>
+                        <p>A department will invest on every details of transaction, as there is no guarantee of fair financial transactions without verification. Investments are subjected to market risks. Natural disasters and other factors can be devastating to the
+                            agriculture industry. Advertisements can lead to earn revenue. </p>
+                    </ol>
+                </li>
+                <li id="3">External Interface Requirements
+                    <ol>
+                        <li id="3.1">User Interfaces</li>
+                        <p>{Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout
+                            constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed.
+                            Details of the user interface design should be documented in a separate user interface specification.}</p>
+                        <li id="3.2">Hardware Interfaces</li>
+                        <p>{Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions
+                            between the software and the hardware, and communication protocols to be used.}</p>
+                        <li id="3.3">Software Interfaces</li>
+                        <p>{Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or
+                            messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols.
+                            Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as
+                            an implementation constraint.}</p>
+                        <li id="3.4">Communications Interfaces</li>
+                        <p>{Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message
+                            formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.}</p>
+                    </ol>
+                </li>
+                <li id="4">System Features
+                    <ol>
+                        <li id="4.1">Farmer profile</li>
+                        <p> <strong> Description and Priority:</strong> In this feature, there will be a profile of every farmer and every farmer will be verified by the government. There will be no access without the verified profile. Every investor will
+                            be able to manage their share and see the condition of their share market from their own profile. Transparency is the first priority.</p>
+                        <p><strong>Functional Requirements:</strong> Generally farmer profile feature will provide the information about the farmer and their previous reviews. These reviews will be helpful for the investor so that they can ensure about the
+                            farmer. Software will show the rating and verification of the farmer so that the investors undoubtedly invest their money.<br> Requirement: Farmer verification.</p>
+
+                        <li id="4.2">Land profile</li>
+                        <p><strong>Description and Priority:</strong>Land position, Size, Rating, fertility will be the discuss point in land profile feature. All the necessary information will be available and reviews about the land such as size, rating
+                            etc. This information will be helpful for the investors to decide about investing in the lands.</p>
+                        <p><strong>Functional Requirements:</strong> Land profile feature will provide users all the information that which land is perfect for which crop. Software will show users the rating of every individual land. <br> Requirements: Land
+                            verification.
+                        </p>
+
+                        <li id="4.3">Market</li>
+                        <p><strong>Description and Priority:</strong>The Market is the main feature of the software. It's a platform that gathers all the information from the database and shows the most necessary parts and lets users go to each details.
+                            It's a list of available lands, their size, fertility, crop that will be cultivated and the budget required and just about every details an user needs to decide upon investing on a land. </p>
+                        </p>
+
+                        <li id="4.4">Response Sequences:</li>
+                        <p><strong></strong> Banks will be assigned to manage money transaction. Every transaction will follow the rules of the system of the bank. Every verified farmer will be given a need based amount of money from the
+                            bank and the investor will take percentage of the share after the harvest or the deadline provided by the farmer. There will be a department consisting some agents to inspect the transaction of money.</p>
+
+                    </ol>
+                </li>
+                <li id="5">Other Nonfunctional Requirements
+                    <ol>
+                        <li id="5.1">Performance Requirements</li>
+                        <p>Performance should not be an issue because all of our server queries involve small pieces of data. Changing screens will require very little computation and thus will occur very quickly.Server updates should only take a few seconds
+                            as long as the phone can maintain a steady signal. The cost-division algorithms used by in application will be highly efficient,takling only a fraction of a second to compute.</p>
+                        <li id="5.2">Safety Requirements</li>
+                        <p> The application will not affect data stored outside of its server nor will it affect any other applications installed on the user's phone.It cannot cause any damage to the phone or its internal components.The only potential safety
+                            concern associated with this applicaion applies to virtually all handset apps:This app shouldnot be used while operating a vehicle or in any other situation where the user's attention must be focused elsewhere.</p>
+                        <li id="5.3">Security Requirements</li>
+                        <p>This application assumes that only the user or whoever he/she allows will have access to his/her android handset.With that being said,Google email address is required to verify the identity of the user upon opening the app.Also
+                            it is protected by password.The user needs to verfy that he is a farmer and need to enter the app by a registration process,which will keep information about his personal details and he has to register his name in the government
+                            list as a farmer.So he have to register in the app by his registation farmer number. </p>
+                        <li id="5.4">Software Quality Attributes</li>
+                        <p>The graphical user interface of the app is to be designed with usability as the first priority.The app will be presented and organized in a manner that is visually appealing and easy to navigate.There will be feedbacks and visual
+                            cues such as notifications to inform users of updates and pop-ups to provide users with instructions.To maintain flexibility and adaptability,the app will take into account situations in which a user loses internet connection
+                            or for watever reason cannot establish a connection with the server.These user will still be able to use the application but any transactions etc. posted while disconnected will be cached until the connection is restored.</p>
+                        <li id="5.5">Business Rules</li>
+                        <p> Transaction will be done by bank acount,mastercard,bikash.Transperacy will be maintained by both buyers and farmers.Buyers and farmers can easily access to all informations.A team of expertise will monitor the budget and swot(strength,weakness,oppourtunities
+                            and threats). Which will be beneficial for both organization and buyer in the long run.</p>
+                    </ol>
+                </li>
+            </ol>
+            <h2 id="AppA">Appendix A: To Be Determined List</h2>
+            <ol>
+                <li>Recommender System</li>
+                <ol>
+                    <li>For Farmers </li>
+                    <p>
+                        A recommender system for farmers to help them choose the best crop to cultivate on their land that will produce the most revenue for each season. It'll help the growth of economy as well as helping the farmers.
+                    </p>
+                    <li>For Investors </li>
+                    <p>
+                        A recommender system for the investors will also be considered that will help investors secure their investments with help of Machine Learning provided that there are enough data to make it happen.
+                    </p>
+                </ol>
+            </ol>
         </div>
         <div class="col-sm-1">
     </section>
 
 
- <!-- Bootstrap javasripts -->
+    <!-- Bootstrap javasripts -->
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-  </body>
+</body>
+
 </html>
