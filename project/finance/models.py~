@@ -30,4 +30,4 @@ class Land(models.Model):
     fertility_rate  = models.IntegerField(max_length=20)
 
     def __str__(self):
-        return self.location
+        return self.full_name
