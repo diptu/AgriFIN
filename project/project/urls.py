@@ -17,6 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
 from finance.views import *
+
+from finance.views import (
+    # restaurant_listview,
+    LandListView,
+
+)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
@@ -24,6 +31,8 @@ urlpatterns = [
     url(r'^signup/$',signup),
     url(r'^contact/$',TemplateView.as_view(template_name='contact.html')),
     url(r'^about/$',TemplateView.as_view(template_name='about.html')),
-    url(r'^market/$',land_profile),
+    # url(r'^market/$',land_profile),
+    url(r'^market/$',LandListView.as_view()),
+    url(r'^market/(?P<slug>\w+)/$',LandListView.as_view()),
     url(r'^profile/$',profile),
 ]
