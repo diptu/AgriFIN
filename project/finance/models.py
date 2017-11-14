@@ -5,9 +5,9 @@ from django.db import models
 
 class Farmer(models.Model):
     full_name    = models.CharField(max_length=120)
-    age          = models.CharField(max_length=5)
-    gender       = models.CharField(max_length=5)
-    address      = models.CharField(max_length=5)
+    age          = models.IntegerField()
+    gender       = models.CharField(max_length=6)
+    address      = models.CharField(max_length=120)
 
     def __str__(self):
         return self.full_name
@@ -15,7 +15,7 @@ class Farmer(models.Model):
 
 class Investor(models.Model):
     full_name    = models.CharField(max_length=120)
-    age          = models.CharField(max_length=5)
+    age          = models.IntegerField()
     gender       = models.CharField(max_length=5)
     address      = models.CharField(max_length=5)
 
@@ -25,9 +25,9 @@ class Investor(models.Model):
 
 class Land(models.Model):
     location        = models.CharField(max_length=120)
-    share_price     = models.IntegerField(max_length=20)
-    share_quantity  = models.IntegerField(max_length=20)
-    fertility_rate  = models.IntegerField(max_length=20)
+    share_price     = models.IntegerField()
+    share_quantity  = models.IntegerField()
+    fertility_rate  = models.IntegerField()
 
     def __str__(self):
         return self.location
