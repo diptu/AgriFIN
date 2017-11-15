@@ -4,6 +4,7 @@ from django.db import models
 from django.db import models
 
 class Farmer(models.Model):
+    username     = models.CharField(max_length=50)
     full_name    = models.CharField(max_length=120)
     age          = models.IntegerField()
     gender       = models.CharField(max_length=6)
