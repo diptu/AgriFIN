@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+<title>{% block head_title %}Sign up | {{ block.super}}{% endblock head_title %}</title>
+
+{% block content %}
+      <h1>       Registration   </h1>
+
+
+
+
+
+<form  method="post" action="">{% csrf_token %}
+	<table border="0" width="500" align="center" class="demo-table">
+		<tr>
+			<td>User Name</td>
+			<td><input type="text"  name="username" required/></td>
+		</tr>
+    <tr>
+			<td>Password</td>
+			<td><input type="password"  name="password"  required/></td>
+		</tr>
+
+
+		<tr>
+			<td>Full Name</td>
+			<td><input type="text"  name="full_name" required /></td>
+		</tr>
+		<tr>
+			<td>Birthday</td>
+			<td><input type="date"  name="birthday" required /></td>
+		</tr>
+    <tr>
+  <td>Gender</td>
+  <td><input type="radio" name="gender" value="Male" checked /> Male
+  <input type="radio" name="gender" value="Female"/> Female
+  </td>
+
+  </tr>
+
+		<tr>
+			<td>profile_picture</td>
+			<td><input type="file" name="profile_picture" accept="image/*"/></td>
+		</tr>
+		<tr>
+			<td>NID</td>
+			<td><input type="text"  name="NID" required/></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><input type="text"  name="email"  required/></td>
+		</tr>
+		<tr>
+			<td>qualification </td>
+			<td><input type="text"  name="qualification"  required/></td>
+		</tr>
+    <tr>
+			<td>Mobile Number : </td>
+			<td><input type="text"  name="mobile_no"  required/></td>
+		</tr>
+
+		<tr>
+			<td>Address</td>
+			<td><input type="text"  name="address" required/></td>
+		</tr>
+
+		</tr>
+    <tr>
+      <td>Bank Account </td>
+      <td><input type="text"  name="bank_credentials" required/></td>
+    </tr>
+
+    </tr>
+
+			<tr>
+			<td>Title </td>
+			<td><input type="radio" name="title" value="Farmer" checked /> Farmer
+			<input type="radio" name="title" value="Investor"/> Investor
+			<input type="radio" name="title" value="Employee"/> Employee
+			</td>
+
+			</tr>
+
+		<tr>
+			<td colspan=2>
+			<input type="checkbox" name="terms"> I accept Terms and Conditions <input type="submit" name="register-user" value="Register" class="btnRegister"></td>
+		</tr>
+	</table>
+</form>
+
+{% endblock %}
