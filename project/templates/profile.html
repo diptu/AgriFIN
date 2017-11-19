@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<title>{%block head_title %}View Profile !!{{block.super}}{% endblock head_title %}</title>
+
+
+
+<div class='container'>
+
+ <!--<h2><p style="font-family:courier;">profile</p><h2>-->
+<ul>
+
+  <li><a href="/profile/farmer">View Farmer's Profile</a></li>
+
+  <li><a href="/profile/investor">View Investor's  Profile</a></li>
+</ul>
+
+
+</div><hr/>
+
+
+
+{{block.super}}
+{% endblock content %}

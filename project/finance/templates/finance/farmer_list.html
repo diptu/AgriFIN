@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+<title>{% block head_title %}Farmer Profile | {{ block.super}}{% endblock head_title %}</title>
+
+{% block content %}
+<h1>Farmer Profile</h1>
+
+<ul>
+{% for obj in object_list %}
+    <li>{{ obj }} <br/>
+     {{ obj.full_name }} {{ obj.age }}  </li>
+    <br/>
+{% endfor %}
+</ul>
+{% endblock %}
