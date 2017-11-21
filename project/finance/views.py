@@ -1,28 +1,18 @@
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
-
-from .forms import FarmerCreateForm
-
 # Create your views here.
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import TemplateView, ListView
 
 def home(request):
     return render(request, "home.html", {})
-
-def login(request):
-    return render(request, "login.html", {})
-
-
 
 def profile(request):
     return render(request, "profile.html", {})
 
 def signup(request):
-    return render(request, "signup.html", {})
+
+    return render(request, 'signup.html', {})
 
 # def land_profile(request):
 #     template_name = 'finance/market.html'
@@ -43,14 +33,3 @@ class LandListView(ListView):
         else:
             queryset = Land.objects.all()
         return queryset
-
-class FarmerCreateView(LoginRequiredMixin, CreateView):
-    form_class = FarmerCreateForm
-    login_url = '/login/'
-    template_name = 'finance/form.html'
-    success_url = "/home/"
-
-    def form_valid(self, form):
-        instance = form.save(commit=False)
-        instance.owner = self.request.user
-        return super(FarmerCreateView, self).form_valid(form)

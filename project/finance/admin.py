@@ -6,3 +6,4 @@ from .models import *
 
 admin.site.register(Land)
 admin.site.register(Farmer)
+admin.site.register(Investor)
