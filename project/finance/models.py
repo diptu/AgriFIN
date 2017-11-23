@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.conf import settings
 from django.db import models
 
@@ -29,6 +30,26 @@ class Investor(models.Model):
         return self.full_name
 
 class Land(models.Model):
+=======
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+
+STATUS_CHOICES = (
+    (1, ("Farmer")),
+    (2, ("Investor")),
+    (3, ("Employee")),
+)
+
+class User(AbstractUser):
+    bio = models.TextField(max_length=500, blank=True)
+    location = models.CharField(max_length=30, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+    status = models.IntegerField(choices=STATUS_CHOICES, default=1)
+
+class Land(models.Model):
+    owner           = models.ForeignKey(User, limit_choices_to = { 'status': 1})
+>>>>>>> 20eb7e3bb2e7cbacc099e1e04e2f96eb6b410657
     location        = models.CharField(max_length=120)
     share_price     = models.IntegerField()
     share_quantity  = models.IntegerField()

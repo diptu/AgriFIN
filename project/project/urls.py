@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+<<<<<<< HEAD
 from django.views.generic import TemplateView
 from finance.views import *
 
@@ -35,4 +36,19 @@ urlpatterns = [
     url(r'^market/$',LandListView.as_view()),
     url(r'^market/(?P<slug>\w+)/$',LandListView.as_view()),
     url(r'^profile/$',profile),
+=======
+from django.contrib.auth import views as auth_views
+from django.views.generic import TemplateView
+from finance.views import *
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', home, name='home'),
+    url(r'^login/$',auth_views.login, name='login'),
+    url(r'^signup/$', signup, name='signup'),
+    url(r'^contact/$',TemplateView.as_view(template_name='contact.html')),
+    url(r'^about/$',TemplateView.as_view(template_name='about.html')),
+    url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
+
+>>>>>>> 20eb7e3bb2e7cbacc099e1e04e2f96eb6b410657
 ]

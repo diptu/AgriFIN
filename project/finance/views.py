@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.db.models import Q
 from django.shortcuts import render
 from .models import *
@@ -64,3 +65,13 @@ class LandListView(ListView):
         else:
             queryset = Land.objects.all()
         return queryset
+=======
+from django.shortcuts import render
+
+# Create your views here.
+def signup(request):
+    return render(request, 'signup.html', {})
+
+def home(request):
+    return render(request, "home.html", {})
+>>>>>>> 20eb7e3bb2e7cbacc099e1e04e2f96eb6b410657
