@@ -8,9 +8,9 @@
 <ul>
 {% for obj in object_list %}
 <h2>{{obj}}</h2>
-    Age       : {{ obj.age }} <br/>
-    Gender    : {{ obj.gender }} <br/>
-    Address   : {{ obj.address }}
+    Status       : {{ obj.status }} <br/>
+    First Name   : {{ obj.first_name }} <br/>
+    Last Name    : {{ obj.last_name }} <br/>
 {% endfor %}
 </ul>
 {% endblock %}
