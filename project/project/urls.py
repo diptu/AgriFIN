@@ -19,11 +19,6 @@ from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
 from finance.views import *
 
-# from finance.views import (
-#     LandListView,
-#
-# )
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
@@ -31,9 +26,6 @@ urlpatterns = [
     url(r'^signup/$', signup, name='signup'),
     url(r'^contact/$',TemplateView.as_view(template_name='contact.html')),
     url(r'^about/$',TemplateView.as_view(template_name='about.html')),
-    # url(r'^market/$',land_profile),
-    url(r'^market/$',LandListView.as_view()),
-    url(r'^market/(?P<slug>\w+)/$',LandListView.as_view()),
-    url(r'^profile/$',profile),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
+
 ]

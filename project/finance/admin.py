@@ -1,9 +1,7 @@
 from django.contrib import admin
 
+from finance.models import *
 # Register your models here.
 
-from .models import *
-
+admin.site.register(User)
 admin.site.register(Land)
-admin.site.register(Farmer)
-admin.site.register(Investor)
