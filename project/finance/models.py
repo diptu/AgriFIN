@@ -16,12 +16,30 @@ class User(AbstractUser):
     status = models.IntegerField(choices=STATUS_CHOICES, default=1)
 
 
+
+
+
+    # def __str__(self):
+    #     return self.land
+
+# class Branch()
+class Branch(models.Model):
+    branch_location =   models.CharField(max_length=120, null=False , blank=False)
+    no_of_employee  =   models.IntegerField()
+
+
+    def __str__(self):
+        # return self.owner.username
+        return self.branch_location
+
+
 class Land(models.Model):
     owner           = models.OneToOneField(User, limit_choices_to = { 'status': 1})
     location        = models.CharField(max_length=120)
     share_price     = models.IntegerField()
     share_quantity  = models.IntegerField()
     fertility_rate  = models.IntegerField()
+    branch          =   models.ForeignKey(Branch, null=True, blank=True)
 
     def __str__(self):
         # return self.owner.username
@@ -31,8 +49,3 @@ class Share(models.Model):
     investor = models.ForeignKey(User, limit_choices_to = { 'status': 2})
     land     = models.ForeignKey(Land)
     amount   = models.IntegerField()
-
-    # def __str__(self):
-    #     return self.land
-
-# class Branch()

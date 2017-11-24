@@ -45,12 +45,15 @@ def signup(request):
 
 class LandListView(ListView):
     model = Land
+class BranchListView(ListView):
+    model = Branch
 
 
 class UserDetail(LoginRequiredMixin, DetailView):
     template_name = 'finance/user_detail.html'
     def get_object(self):
         return self.request.user
+
 
 class BuyShareView(FormView):
     template_name = 'finance/action_page.html'
@@ -75,3 +78,10 @@ class LandDetail(DetailView):
         rest_id = self.kwargs.get('id')
         context = get_object_or_404(Land, id=rest_id) # pk = rest_id
         return context
+
+class BranchDetail(DetailView):
+    model = Branch
+    def get_object(self, *args, **kwargs):
+        branch_id = self.kwargs.get('id')
+        obj = get_object_or_404(Branch, id=branch_id) # pk = rest_id
+        return obj

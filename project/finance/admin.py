@@ -9,3 +9,5 @@ from finance.models import *
 admin.site.register(User)
 
 admin.site.register(Land)
+
+admin.site.register(Branch)

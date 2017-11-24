@@ -28,8 +28,11 @@ urlpatterns = [
     url(r'^signup/$', signup, name='signup'),
     # url(r'^profile/$',profile),
     url(r'^profile/$',UserDetail.as_view()),
-    url(r'^market/$',LandListView.as_view()),
+
+    url(r'^branch/$',BranchListView.as_view()),
+    url(r'^branch/(?P<id>\d+)/$', BranchDetail.as_view()),
     url(r'^market/(?P<id>\d+)/$', LandDetail.as_view()),
+    url(r'^market/$',LandListView.as_view()),
     url(r'^market/(?P<id>\d+)/buyshare/$', BuyShareView.as_view()),
     url(r'^contact/$',TemplateView.as_view(template_name='contact.html')),
     url(r'^about/$',TemplateView.as_view(template_name='about.html'), name='about'),

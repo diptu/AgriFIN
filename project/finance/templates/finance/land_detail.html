@@ -3,11 +3,15 @@
 {% block head_title %}Market | {{ block.super}}{% endblock head_title %}
 
 {% block content %}
+
 <h2>Owner:  {{ object.owner }}</h2>
-<pre><h3>Location: {{ object.location }}</h3>
-<h3>Share Price: {{ object.share_price }}</h3>
-<h3>Share Quantity: {{ object.share_quantity }}</h3>
-<h3>Fertility Rate: {{ object.fertility_rate }}</h3></pre>
+<pre><p>Location: {{ object.location }}</p>
+<p>Share Price: {{ object.share_price }}</p>
+<p>Share Quantity: {{ object.share_quantity }}</p>
+<p>Fertility Rate: {{ object.fertility_rate }}</p>
+<p>Fertility Rate: {{ object.branch }}</p>
+
+</pre>
 
 <!-- <form action="/action_page.html">
 <input type="number" name="buy_share" min="0" max="object.share_quantity">
