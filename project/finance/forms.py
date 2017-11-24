@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from finance.models import User
+from finance.models import *
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -14,6 +14,15 @@ User = get_user_model()
 # from django import forms
 # from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
+class BuyShare(forms.Form):
+    land_id = forms.IntegerField()
+    user_id = forms.IntegerField()
+    quantity = forms.IntegerField()
+
+    class Meta:
+        model = Land
+        fields = ('land_id', 'user_id','buy_share',)
+
 
 STATUS_CHOICES = (
     (1, ("Farmer")),

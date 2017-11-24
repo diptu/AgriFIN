@@ -4,13 +4,8 @@
 {% block head_title %}Restaurants | {{ block.super}}{% endblock head_title %}
 
 {% block content %}
-
-<ul>
-{% for obj in object_list %}
-<h2>{{obj}}</h2>
-    Status       : {{ obj.status }} <br/>
-    First Name   : {{ obj.first_name }} <br/>
-    Last Name    : {{ obj.last_name }} <br/>
-{% endfor %}
-</ul>
+<pre>
+<h2>Name:  {{ object.first_name }} {{ object.last_name }}</h2>
+<h3>Status: {{ object.status }}</h3>
+</pre>
 {% endblock %}

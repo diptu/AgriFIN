@@ -26,11 +26,13 @@ urlpatterns = [
     # url(r'^login/$',auth_views.login, name='login'),
     url(r'^login/$', auth_views.login, {'template_name': 'finance/login.html'}, name='login'),
     url(r'^signup/$', signup, name='signup'),
-    url(r'^profile/$',profile),
+    # url(r'^profile/$',profile),
+    url(r'^profile/$',UserDetail.as_view()),
     url(r'^market/$',LandListView.as_view()),
-    url(r'^market/(?P<id>\d+)/$', LandDetailView.as_view()),
+    url(r'^market/(?P<id>\d+)/$', LandDetail.as_view()),
+    url(r'^market/(?P<id>\d+)/buyshare/$', BuyShareView.as_view()),
     url(r'^contact/$',TemplateView.as_view(template_name='contact.html')),
-    url(r'^about/$',TemplateView.as_view(template_name='about.html')),
+    url(r'^about/$',TemplateView.as_view(template_name='about.html'), name='about'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
 
 ]
