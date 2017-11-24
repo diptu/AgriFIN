@@ -1,22 +1,48 @@
 
-<div class='container'>
-<div class='row text-center'>
-<div clsas='col-sm-6 col-sm-offset-3'>
- <h2><p style="font-family:courier;">AgriFin</p><h2>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <a href="/">Home</a>
-  <a href="/market">Market</a>
-  {% if request.user.is_authenticated %}
-  <a href="/profile">Profile</a>
-  <a href="/logout">Logout</a>
-  {% else %}
-  <a href="/login">Login</a>
-  <a href="/signup">Sign Up</a>
-  {% endif %}
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
 
-</div>
-</div>
 
-</div><hr/>
+            <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+
+              <ul class="nav navbar-nav">
+              <li>  <a  href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+
+              <li><a  href="/market"> <span class="glyphicon glyphicon-list-alt"></span>   Market</a><li>
+              {% if request.user.is_authenticated %}
+              <li><a  href="/profile"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
+              <li>  <a  href="/about"><span class="glyphicon glyphicon-info-sign">       About</a></li>
+              <li>  <a  href="/contact"><span class="glyphicon glyphicon-phone-alt"></span>     Contact</a></li>
+              </ul>
+                <ul class="nav navbar-nav navbar-right">
+              <li><a  href="/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                </ul>
+
+              {% else %}
+
+
+                 <ul class="nav navbar-nav navbar-right">
+                   <li>  <a  href="/about"><span class="glyphicon glyphicon-info-sign">       About</a></li>
+                   <li>  <a  href="/contact"><span class="glyphicon glyphicon-phone-alt"></span>     Contact</a></li>
+
+                        <li><a href="/signup"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
+                        <li><a  href="/login"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+
+            </ul>
+
+              {% endif %}
+
+
+
+
+
+
+           </div>
+         </nav>
+
+  <h2 align="center" style="font-family:Brush Script MT, Brush Script Std, cursive; font-style: oblique" >AgriFin</h2>
+  <!--  <ul class="nav nav-pills">-->
+  <br><br> <hr/>
+

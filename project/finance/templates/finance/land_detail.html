@@ -4,17 +4,22 @@
 
 {% block content %}
 
-<h2>Owner:  {{ object.owner }}</h2>
-<pre><p>Location: {{ object.location }}</p>
-<p>Share Price: {{ object.share_price }}</p>
-<p>Share Quantity: {{ object.share_quantity }}</p>
-<p>Fertility Rate: {{ object.fertility_rate }}</p>
-<p>Fertility Rate: {{ object.branch }}</p>
 
-</pre>
+<div class="container">
+  <h2 align ="center">Owner:  {{ object.owner }}</h2>
+  <ul class="list-group">
+<li class="list-group-item">Location: {{ object.location }}</li>
+<li class="list-group-item">Share Price: {{ object.share_price }}</li>
+<li class="list-group-item">Share Quantity: {{ object.share_quantity }}</li>
+<li class="list-group-item">Fertility Rate: {{ object.fertility_rate }}</li>
+<li class="list-group-item">Fertility Rate: {{ object.branch }}</li>
 
+
+</ul>
+</div>
 <!-- <form action="/action_page.html">
 <input type="number" name="buy_share" min="0" max="object.share_quantity">
 <button type="submit">Buy Share</button>
 </form> -->
 {% endblock %}
+
