@@ -52,3 +52,24 @@ class Share(models.Model):
 
     def __str__(self):
         return self.investor.username
+
+
+
+
+class Fertilizer(models.Model):
+
+    fertilizer_name  = models.CharField(max_length=50)
+    unit_price       = models.IntegerField(null=False)
+    amount_per_sqft  = models.DecimalField( max_digits=20, decimal_places=2)
+
+    def __str__(self):
+        return self.fertilizer_name
+
+class Crop(models.Model):
+    crop_name        = models.CharField(max_length=50,null=False,blank=False)
+    unit_price       = models.IntegerField(null=False)
+    amount_per_sqft  = models.DecimalField( max_digits=20, decimal_places=2)
+    fertilizer_name  = models.ForeignKey(Fertilizer, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.crop_name

@@ -48,6 +48,10 @@ class LandListView(ListView):
 
 class BranchListView(ListView):
     model = Branch
+class CropListView(ListView):
+    model =Crop
+
+
 
 class StatusChoice():
     def choices(a):
@@ -102,4 +106,23 @@ class BranchDetail(DetailView):
     def get_object(self, *args, **kwargs):
         branch_id = self.kwargs.get('id')
         obj = get_object_or_404(Branch, id=branch_id) # pk = rest_id
+        return obj
+
+
+class CropDetail(DetailView):
+    model = Crop
+    def get_object(self, *args, **kwargs):
+        crop_id = self.kwargs.get('id')
+        obj = get_object_or_404(Crop, id=crop_id) # pk = rest_id
+        return obj
+
+
+class FertilizerListView(ListView):
+    model = Fertilizer
+
+class FertilizerDetail(DetailView):
+    model = Fertilizer
+    def get_object(self, *args, **kwargs):
+        fertilizer_id = self.kwargs.get('id')
+        obj = get_object_or_404(Fertilizer, id=fertilizer_id) # pk = rest_id
         return obj

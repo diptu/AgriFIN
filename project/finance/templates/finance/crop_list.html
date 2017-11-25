@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block head_title %}Crop List   | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+
+<div class="container">
+<h1 align ="center">Crop Information</h1>
+
+<ul class="list-group">
+{% for obj in object_list %}
+    <br><ul align ="center"><a href='/crop/{{ obj.id }}/'>{{ obj }}</a>
+      <li class="list-group-item">Fertilizer  : <a href='/fertilizer/{{ obj.fertilizer.id }}'> {{obj.fertilizer_name}}</a></li>
+   <li class="list-group-item">Price Per Unit(kg) :  {{obj.unit_price}} Tk</li>
+  <li class="list-group-item">Required  Amount Per sq Feet :  {{obj.amount_per_sqft}}</li></ul>
+<br><hr>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

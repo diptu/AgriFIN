@@ -13,3 +13,7 @@ admin.site.register(Land)
 admin.site.register(Branch)
 
 admin.site.register(Share)
+
+admin.site.register(Crop)
+
+admin.site.register(Fertilizer)
