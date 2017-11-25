@@ -49,3 +49,6 @@ class Share(models.Model):
     investor = models.ForeignKey(User, limit_choices_to = { 'status': 2})
     land     = models.ForeignKey(Land)
     amount   = models.IntegerField()
+
+    def __str__(self):
+        return self.investor.username

@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.views.generic import View, ListView, DetailView, FormView
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import SignUpForm, BuyShare
 from .models import *
@@ -12,15 +12,15 @@ from .models import *
 def home(request):
     return render(request, "home.html", {})
 
-# @login_required
-# def profile(request):
-#     print(request.session)
-#     template_name = 'finance/user_detail.html'
-#     queryset = User.objects.filter(username=request.user)
-#     context = {
-#         "object_list": queryset
-#     }
-#     return render(request, template_name, context)
+@login_required
+def profile(request):
+    print(request.session)
+    template_name = 'finance/user_detail.html'
+    queryset = User.objects.filter(username=request.user)
+    context = {
+        "object_list": queryset
+    }
+    return render(request, template_name, context)
 
 
 
@@ -45,35 +45,17 @@ def signup(request):
 
 class LandListView(ListView):
     model = Land
-
 class BranchListView(ListView):
     model = Branch
 
-class StatusChoice():
-    def choices(a):
-        STATUS_CHOICES = {1: "Farmer", 2: "Investor", 3: "Employee"}
-        return STATUS_CHOICES[a]
 
 class UserDetail(LoginRequiredMixin, DetailView):
-    # template_name = 'finance/user_detail.html'
-    def get_object(self, *args, **kwargs):
-        context = get_object_or_404(User, id=self.request.user.id) # pk = rest_id
-        context.status = StatusChoice.choices(context.status)
-        return context
-    # model = User
-    # def get_context_data(self, **kwargs):
-    #     # Call the base implementation first to get a context
-    #     context = super(UserDetail, self).get_context_data(**kwargs)
-    #     # Add in a QuerySet of all the books
-    #     # context['book_list'] = Book.objects.all()
-    #     print(context)
-    #     return context
+    template_name = 'finance/user_detail.html'
+    def get_object(self):
+        return self.request.user
 
 
-class BuyShareView(UserPassesTestMixin, FormView):
-    def test_func(self):
-        return self.request.user.status == 2
-
+class BuyShareView(FormView):
     template_name = 'finance/action_page.html'
     form_class = BuyShare
     success_url = 'about'
@@ -81,20 +63,20 @@ class BuyShareView(UserPassesTestMixin, FormView):
     def form_valid(self, form):
         if form.is_valid():
             # work = form.save()
-            # land_id = form.cleaned_data.get('land_id')
-            land = Land.objects.get(id = self.kwargs.get('id'))
-            # user_id = form.cleaned_data.get('user_id')
-            user = User.objects.get(id=self.request.user.id)
-            # print(self.kwargs.get('id'))
+            land_id = form.cleaned_data.get('land_id')
+            land = Land.objects.get(id = land_id)
+            user_id = form.cleaned_data.get('user_id')
+            user = User.objects.get(id = user_id)
             quantity = form.cleaned_data.get('quantity')
-            # print(quantity)
             Share.objects.create(investor = user, land = land, amount = quantity)
+            print(user)
         return redirect('about')
 
 class LandDetail(DetailView):
     model = Land
-    def get_object(self, *args ,**kwargs):
-        context = get_object_or_404(Land, id = self.kwargs.get('id'))
+    def get_object(self, *args, **kwargs):
+        rest_id = self.kwargs.get('id')
+        context = get_object_or_404(Land, id=rest_id) # pk = rest_id
         return context
 
 class BranchDetail(DetailView):

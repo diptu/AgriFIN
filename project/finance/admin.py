@@ -11,3 +11,5 @@ admin.site.register(User)
 admin.site.register(Land)
 
 admin.site.register(Branch)
+
+admin.site.register(Share)

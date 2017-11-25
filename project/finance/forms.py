@@ -15,8 +15,6 @@ User = get_user_model()
 # from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
 class BuyShare(forms.Form):
-    land_id = forms.IntegerField()
-    user_id = forms.IntegerField()
     quantity = forms.IntegerField()
 
     class Meta:
