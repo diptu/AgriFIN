@@ -17,3 +17,7 @@ admin.site.register(Share)
 admin.site.register(Crop)
 
 admin.site.register(Fertilizer)
+
+admin.site.register(Budget)
+
+admin.site.register(Revenue)

@@ -73,3 +73,27 @@ class Crop(models.Model):
 
     def __str__(self):
         return self.crop_name
+
+
+class Budget(models.Model):
+    land             = models.OneToOneField(Land)
+    crop             = models.OneToOneField(Crop)
+    worker_fee       = models.DecimalField( max_digits=20, decimal_places=2)
+    irrigation_fee   = models.DecimalField( max_digits=20, decimal_places=2)
+    other_cost       = models.DecimalField( max_digits=20, decimal_places=2)
+    def total_cost(self):
+        return  (self.worker_fee + self.irrigation_fee + self.other_cost)
+    def __str__(self):
+        return self.land.location
+
+
+
+
+class Revenue(models.Model):
+    total_revenue   = models.DecimalField( max_digits=20, decimal_places=2)
+    budget          = models.OneToOneField(Budget)
+
+
+
+    def get_total_revenue(self):
+       return  (self.total_revenue - self.budget.total_cost() )
