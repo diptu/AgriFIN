@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'^profile/$',UserDetail.as_view()),
     url(r'^profile/history/$',HistoryListView.as_view()),
 
+    url(r'^add/$',LandUpdateView.as_view()),
+
     url(r'^branch/$',BranchListView.as_view()),
     url(r'^branch/(?P<id>\d+)/$', BranchDetail.as_view()),
     url(r'^market/(?P<id>\d+)/$', LandDetail.as_view()),

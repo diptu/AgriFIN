@@ -14,7 +14,12 @@
 <li class="list-group-item">Fertility Rate: {{ object.fertility_rate }}</li>
 <li class="list-group-item">Branch: {{ object.branch }}</li>
 
-<a href='/market/{{ object.id }}/buyshare'>Buy Share</a>
+{% if request.user.status == 2 %}
+<br>
+<button type="button" class="btn btn-outline-primary">
+    <a style="color:black;" href='/market/{{ object.id }}/buyshare'>Buy Share</a></button>
+<!-- <a href='/market/{{ object.id }}/buyshare'>Buy Share</a> -->
+{% endif %}
 
 </ul>
 </div>

@@ -11,18 +11,23 @@
               <li>  <a  href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
 
               <li><a  href="/market"> <span class="glyphicon glyphicon-list-alt"></span>   Market</a><li>
-                    <li><a  href="/crop"> <span class="glyphicon glyphicon-list-alt"></span>   Crop</a><li>  
               {% if request.user.is_authenticated %}
-
 
 
               <li><a  href="/profile"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
               <li>  <a  href="/about"><span class="glyphicon glyphicon-info-sign">       About</a></li>
               <li>  <a  href="/contact"><span class="glyphicon glyphicon-phone-alt"></span>     Contact</a></li>
+              {% if request.user.status == 3 %}
+              <li><a  href="/crop"> <span class="glyphicon glyphicon-list-alt"></span>   Crop</a><li>
+              <li><a  href="/add"><span class="glyphicon glyphicon-log-in"></span>  Add </a></li>
+
+                  {% endif %}
               </ul>
+
                 <ul class="nav navbar-nav navbar-right">
               <li><a  href="/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
                 </ul>
+
 
               {% else %}
 
@@ -34,11 +39,10 @@
                         <li><a href="/signup"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
                         <li><a  href="/login"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
 
+
             </ul>
 
               {% endif %}
-
-
 
 
 

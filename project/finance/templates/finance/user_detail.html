@@ -14,8 +14,12 @@
     <li class="list-group-item">Username:  {{ object.username }}</li>
     <li class="list-group-item">Status: {{ object.status }}</li>
     <li class="list-group-item">Birth date: {{ object.birth_date }}</li>
-    <a href='/profile/history/'>Purchase History</a>
 
+    {% if request.user.status == 2 %}
+    <a href='/profile/history/'>History</a>
+    {%elif request.user.status == 1%}
+    <a href='/profile/history/'>Farms</a>
+    {% endif %}
 </ul>
 </div>
 {% endblock %}

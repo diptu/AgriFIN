@@ -42,7 +42,7 @@ class Branch(models.Model):
 
 
 class Land(models.Model):
-    owner           = models.OneToOneField(User, limit_choices_to = { 'status': 1})
+    owner           = models.ForeignKey(User, limit_choices_to = { 'status': 1})
     budget          = models.OneToOneField(Budget)
     location        = models.CharField(max_length=120)
     share_price     = models.IntegerField()
@@ -82,10 +82,6 @@ class Crop(models.Model):
 
     def __str__(self):
         return self.crop_name
-
-
-
-
 
 
 class Revenue(models.Model):

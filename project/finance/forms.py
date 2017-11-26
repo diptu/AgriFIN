@@ -14,6 +14,20 @@ User = get_user_model()
 # from django import forms
 # from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
+class LandUpdate(forms.Form):
+    owner          = forms.ModelChoiceField(queryset=User.objects.filter(status=1))
+    location       = forms.CharField()
+    share_price    = forms.IntegerField()
+    share_quantity = forms.IntegerField()
+    fertility_rate = forms.DecimalField(min_value = 0.0, max_value = 100.0)
+    worker_fee     = forms.IntegerField()
+    other_cost     = forms.IntegerField()
+    irrigation_fee = forms.IntegerField()
+
+    # class Meta:
+    #     model = Land
+    #     fields = ('land_id', 'user_id','buy_share',)
+
 class BuyShare(forms.Form):
     quantity = forms.IntegerField()
 
