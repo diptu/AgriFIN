@@ -28,11 +28,13 @@ urlpatterns = [
     url(r'^signup/$', signup, name='signup'),
     # url(r'^profile/$',profile),
     url(r'^profile/$',UserDetail.as_view()),
+    url(r'^profile/history/$',HistoryListView.as_view()),
 
     url(r'^branch/$',BranchListView.as_view()),
     url(r'^branch/(?P<id>\d+)/$', BranchDetail.as_view()),
     url(r'^market/(?P<id>\d+)/$', LandDetail.as_view()),
     url(r'^market/$',LandListView.as_view()),
+
     url(r'^crop/$',CropListView.as_view()),
     url(r'^crop/(?P<id>\d+)/$', CropDetail.as_view()),
     url(r'^fertilizer/$',FertilizerListView.as_view()),

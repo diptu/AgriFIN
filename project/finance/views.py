@@ -14,13 +14,18 @@ def home(request):
 
 # @login_required
 # def profile(request):
-#     print(request.session)
-#     template_name = 'finance/user_detail.html'
-#     queryset = User.objects.filter(username=request.user)
+#     # print(request.session)
+#     template_name = 'finance/user_detail1.html'
+#     user = get_object_or_404(User, username=request.user)
+#     # queryset = get_object_or_404(User, id = request.user.id)
+#     # print(request.user.id)
+#     user.status = 1
 #     context = {
-#         "object_list": queryset
+#         "object_list": user
 #     }
+#     print(user.status)
 #     return render(request, template_name, context)
+
 
 
 
@@ -46,8 +51,16 @@ def signup(request):
 class LandListView(ListView):
     model = Land
 
+class HistoryListView(ListView):
+    model = Land
+    def get_queryset(self):
+        queryset = Share.objects.filter(investor = self.request.user)
+        # print(queryset)
+        return queryset
+
 class BranchListView(ListView):
     model = Branch
+
 class CropListView(ListView):
     model =Crop
 
@@ -59,19 +72,14 @@ class StatusChoice():
         return STATUS_CHOICES[a]
 
 class UserDetail(LoginRequiredMixin, DetailView):
-    # template_name = 'finance/user_detail.html'
+    template_name = 'finance/user_detail.html'
     def get_object(self, *args, **kwargs):
         context = get_object_or_404(User, id=self.request.user.id) # pk = rest_id
         context.status = StatusChoice.choices(context.status)
         return context
-    # model = User
-    # def get_context_data(self, **kwargs):
-    #     # Call the base implementation first to get a context
-    #     context = super(UserDetail, self).get_context_data(**kwargs)
-    #     # Add in a QuerySet of all the books
-    #     # context['book_list'] = Book.objects.all()
-    #     print(context)
-    #     return context
+
+class LandUpdateView():
+    pass
 
 
 class BuyShareView(UserPassesTestMixin, FormView):
@@ -93,6 +101,8 @@ class BuyShareView(UserPassesTestMixin, FormView):
             quantity = form.cleaned_data.get('quantity')
             # print(quantity)
             Share.objects.create(investor = user, land = land, amount = quantity)
+            land.share_quantity -= quantity
+            land.save()
         return redirect('about')
 
 class LandDetail(DetailView):

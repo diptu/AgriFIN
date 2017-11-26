@@ -16,17 +16,25 @@ class User(AbstractUser):
     status = models.IntegerField(choices=STATUS_CHOICES, default=1)
 
 
-
-
-
     # def __str__(self):
     #     return self.land
 
-# class Branch()
+
+
+class Budget(models.Model):
+    # land             = models.OneToOneField(Land)
+    # crop             = models.OneToOneField(Crop)
+    worker_fee       = models.DecimalField( max_digits=20, decimal_places=2)
+    irrigation_fee   = models.DecimalField( max_digits=20, decimal_places=2)
+    other_cost       = models.DecimalField( max_digits=20, decimal_places=2)
+    # def total_cost(self):
+    #     return  (self.worker_fee + self.irrigation_fee + self.other_cost)
+    def __str__(self):
+        return str(self.worker_fee + self.irrigation_fee + self.other_cost)
+
 class Branch(models.Model):
     branch_location =   models.CharField(max_length=120, null=False , blank=False)
     no_of_employee  =   models.IntegerField()
-
 
     def __str__(self):
         # return self.owner.username
@@ -35,11 +43,12 @@ class Branch(models.Model):
 
 class Land(models.Model):
     owner           = models.OneToOneField(User, limit_choices_to = { 'status': 1})
+    budget          = models.OneToOneField(Budget)
     location        = models.CharField(max_length=120)
     share_price     = models.IntegerField()
     share_quantity  = models.IntegerField()
     fertility_rate  = models.IntegerField()
-    branch          =   models.ForeignKey(Branch, null=True, blank=True)
+    branch          = models.ForeignKey(Branch, null=True, blank=True)
 
     def __str__(self):
         # return self.owner.username
@@ -75,16 +84,6 @@ class Crop(models.Model):
         return self.crop_name
 
 
-class Budget(models.Model):
-    land             = models.OneToOneField(Land)
-    crop             = models.OneToOneField(Crop)
-    worker_fee       = models.DecimalField( max_digits=20, decimal_places=2)
-    irrigation_fee   = models.DecimalField( max_digits=20, decimal_places=2)
-    other_cost       = models.DecimalField( max_digits=20, decimal_places=2)
-    def total_cost(self):
-        return  (self.worker_fee + self.irrigation_fee + self.other_cost)
-    def __str__(self):
-        return self.land.location
 
 
 

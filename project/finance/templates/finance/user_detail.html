@@ -5,11 +5,17 @@
 
 
 {% block content %}
+{%if context %}
+    <h1>hello</h1>
+{%endif%}
 <div class="container">
-<h2 align ="center">Profile Information</h2>
+<h2 align ="center">{{ object.first_name }} {{ object.last_name }}</h2>
 <ul class="list-group">
-<li class="list-group-item">Name:  {{ object.first_name }} {{ object.last_name }}</li>
-<li class="list-group-item">Status: {{ object.status }}</li>
+    <li class="list-group-item">Username:  {{ object.username }}</li>
+    <li class="list-group-item">Status: {{ object.status }}</li>
+    <li class="list-group-item">Birth date: {{ object.birth_date }}</li>
+    <a href='/profile/history/'>Purchase History</a>
+
 </ul>
 </div>
 {% endblock %}
