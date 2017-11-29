@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head_title %}Market | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+
+
+<div class="container">
+  <h2 align ="center">Owner:  {{ object.owner }}</h2>
+  <ul class="list-group">
+<li class="list-group-item">Location: {{ object.location }}</li>
+<li class="list-group-item">Share Price: {{ object.share_price }}</li>
+<li class="list-group-item">Share Quantity: {{ object.share_quantity }}</li>
+<li class="list-group-item">Fertility Rate: {{ object.fertility_rate }}</li>
+<li class="list-group-item">Branch: {{ object.branch }}</li>
+
+{% if request.user.status == 2 %}
+<br>
+<button type="button" class="btn btn-outline-primary">
+    <a style="color:black;" href='/market/{{ object.id }}/buyshare'>Buy Share</a></button>
+<!-- <a href='/market/{{ object.id }}/buyshare'>Buy Share</a> -->
+{% endif %}
+
+</ul>
+</div>
+<!-- <form action="/action_page.html">
+<input type="number" name="buy_share" min="0" max="object.share_quantity">
+<button type="submit">Buy Share</button>
+</form> -->
+{% endblock %}

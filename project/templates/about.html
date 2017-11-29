@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<title>{%block head_title %}About!!{{block.super}}{% endblock head_title %}</title>
+
+<h3>About</h3>
+
+<p style="font-family:courier;">Agri-Finance is a platform to connect farmers from remote corners of the country to anybody interested to invest on a farmer's land.
+   <br>It makes it easier for farmers to work on any crop that is best for the land without worrying about the funding.</p>
+   <hr>
+{{block.super}}
+{% endblock content %}

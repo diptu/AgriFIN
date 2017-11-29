@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head_title %}Market | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+
+<ul>
+{% for obj in object_list %}
+    <ul><a href='/market/{{ obj.land.mid }}/'>{{ obj.land }}</a>
+      <li>Amount : {{obj.amount}}</li>
+    <pre><li>Share Price:  {{obj.land.share_price}}</pre></li></ul>
+{% endfor %}
+</ul>
+
+{% endblock %}

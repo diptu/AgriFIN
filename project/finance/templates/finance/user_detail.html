@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block head_title %}User Information | {{ block.super}}{% endblock head_title %}
+
+
+{% block content %}
+{%if context %}
+    <h1>hello</h1>
+{%endif%}
+<div class="container">
+<h2 align ="center">{{ object.first_name }} {{ object.last_name }}</h2>
+<ul class="list-group">
+    <li class="list-group-item">Username:  {{ object.username }}</li>
+    <li class="list-group-item">Status: {{ object.status }}</li>
+    <li class="list-group-item">Birth date: {{ object.birth_date }}</li>
+
+    {% if request.user.status == 2 %}
+    <a href='/profile/history/'>History</a>
+    {%elif request.user.status == 1%}
+    <a href='/profile/history/'>Farms</a>
+    {% endif %}
+</ul>
+</div>
+{% endblock %}

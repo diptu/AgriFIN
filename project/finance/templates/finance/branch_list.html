@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head_title %}Branch Lists| {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+<h1>Branch List  :</h1>
+
+<ul>
+{% for obj in object_list %}
+    <li><a href='/branch/{{ obj.id }}/'>{{ obj }}</a>
+    ,<!--<pre>Number of Employee :  {{obj.no_of_employee}}</pre></li>-->
+{% endfor %}
+</ul>
+{% endblock %}

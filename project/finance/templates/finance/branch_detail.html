@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block head_title %}Branch Detail {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+<div class="container">
+<h3 align ="center">Branch Location :  {{ object }}</h3>
+<ul class="list-group">
+<li class="list-group-item">Number of Employee : {{ object.no_of_employee }}</li>
+</ul>
+</div>
+
+<!-- <form action="/action_page.html">
+<input type="number" name="buy_share" min="0" max="object.share_quantity">
+<button type="submit">Buy Share</button>
+</form> -->
+{% endblock %}

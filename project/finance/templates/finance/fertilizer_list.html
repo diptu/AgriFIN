@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+{% block head_title %}Fertilizer List   | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+<div class="container">
+<h1 align ="center">Fertilizer Information</h1>
+
+<ul class="list-group">
+{% for obj in object_list %}
+    <br><ul align ="center"><a href='/fertilizer/{{ obj.id }}/'>{{ obj }}</a>
+
+    <li class="list-group-item">Price Per Unit (kg):  {{obj.unit_price}} Tk</li>
+  </li></ul>
+  <br><hr>
+{% endfor %}
+</ul>
+{% endblock %}
