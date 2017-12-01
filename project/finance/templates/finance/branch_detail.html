@@ -1,17 +1,32 @@
-{% extends "base.html" %}
+{% include 'snippets/nav.html' %}
 
-{% block head_title %}Branch Detail {{ block.super}}{% endblock head_title %}
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
+
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
 
 {% block content %}
 <div class="container">
-<h3 align ="center">Branch Location :  {{ object }}</h3>
+<h5 align ="center"><p style="font-family:courier;">Branch Location :  {{ object }}</p></h5>
 <ul class="list-group">
-<li class="list-group-item">Number of Employee : {{ object.no_of_employee }}</li>
+<li class="list-group-item"><p style="font-family:courier;">Number of Employee : {{ object.no_of_employee }}</p></li>
 </ul>
 </div>
+<br><br><h4 align="center"><a href='/branch/' class="btn btn-1 btn-1d" >Back </a></h4><br><br><br><br>
 
 <!-- <form action="/action_page.html">
 <input type="number" name="buy_share" min="0" max="object.share_quantity">
 <button type="submit">Buy Share</button>
 </form> -->
 {% endblock %}
+</div>
+</div>
+</div>
+
+
+{% include 'snippets/footer.html' %}

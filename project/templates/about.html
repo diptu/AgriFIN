@@ -1,11 +1,176 @@
-{% extends "base.html" %}
-{% block content %}
-<title>{%block head_title %}About!!{{block.super}}{% endblock head_title %}</title>
+{% include 'snippets/nav.html' %}
 
-<h3>About</h3>
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
+	<!--about-->
+	<div class="about">
+		<div class="container">
+			<div class="about-info">
 
-<p style="font-family:courier;">Agri-Finance is a platform to connect farmers from remote corners of the country to anybody interested to invest on a farmer's land.
-   <br>It makes it easier for farmers to work on any crop that is best for the land without worrying about the funding.</p>
-   <hr>
-{{block.super}}
-{% endblock content %}
+
+				<div class="col-md-6 about-grids">
+					<h3>Who we are  </h3>
+					<img src="/static/images/img2.jpg" alt=""/>
+					<h5><p style="font-family:courier;">Short description about our work !</p>
+   				<hr></p>
+					<a href="/" class="btn btn-1 btn-1d"> Read More </a>
+				</div>
+
+
+
+				<div class="col-md-6 about-grids">
+					<h3>Overview  </h3>
+					<h5>About </h5>
+					<p>	Agri-Finance is a platform to connect farmers from remote corners of the country to anybody interested to invest on a farmer's land.
+   <br>It makes it easier for farmers to work on any crop that is best for the land without worrying about the funding. </p>
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">
+										Trademark
+									</a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true">
+								<div class="panel-body">
+									Add a short description about Trademark
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										Future  plan
+									</a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
+								<div class="panel-body">
+									Short description about further
+									</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingThree">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									Misson
+									</a>
+								</h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
+								<div class="panel-body">
+										Add mission statement here...
+									</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingFour">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+									Vision
+									</a>
+								</h4>
+							</div>
+							<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false">
+								<div class="panel-body">
+										Add Vision statement here...
+									</div>
+							</div>
+						</div>
+						<!--<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingFive">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+									Repreiusmod
+									</a>
+								</h4>
+							</div>
+							<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+								</div>
+							</div>
+						</div>-->
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<!--team-->
+			<div class="team">
+				<h3>Our Team Members</h3>
+				<div class="team-info">
+					<div class="col-md-3 team-grids">
+						<a href="#">
+							<img class="img-responsive" src="/static/images/nabeel_mohammed.jpg" alt="">
+							<div class="captn">
+								<h4>Dr Nabeel Mohammed</h4>
+								<p>Our honourable mentor and Assistant Professor  at North South University</p>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-3 team-grids">
+						<a href="#">
+							<img class="img-responsive" src="/static/images/rifat.jpg" alt="">
+							<div class="captn">
+								<h4>Naimul Rifat</h4>
+								<p>Lazy but great!</p>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-3 team-grids">
+						<a href="#">
+							<img class="img-responsive" src="/static/images/diptu.jpg" alt="">
+							<div class="captn">
+								<h4>Nazmul Alam Diptu</h4>
+								<p>no into ! </p>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-3 team-grids">
+						<a href="#">
+							<img class="img-responsive" src="/static/images/mysha.jpg" alt="">
+							<div class="captn">
+								<h4>Mysha Rahman</h4>
+								<p>Sub-executive body at North South University Diversity Club - NSUDC
+Past: Oxford International School, Dhaka</p>
+							</div>
+						</a>
+					</div>
+          <div class="col-md-3 team-grids">
+						<a href="#">
+							<img class="img-responsive" src="/static/images/ameer.jpg" alt="">
+							<div class="captn">
+								<h4>Ameer UI Islam </h4>
+								<p>Owner at AmeerHosting.com (Hosting and Domain Registration Service) and President (title) at Organic Solutions</p>
+							</div>
+						</a>
+					</div>
+
+
+					<div class="col-md-3 team-grids">
+						<a href="#">
+							<img class="img-responsive" src="/static/images/najmul.jpg" alt="">
+							<div class="captn">
+								<h4>Hassan Najmul Haque </h4>
+								<p>    Member at Earth Club of North South University, Membership Advisor at North South University Social Services Club (NSUSSC) and Participant at North South University Cine & Drama Club
+</p>
+							</div>
+						</a>
+					</div>
+
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!--//team-->
+		</div>
+	</div>
+	<!--about-->
+
+
+{% include 'snippets/footer.html' %}

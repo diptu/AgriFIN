@@ -1,15 +1,29 @@
-{% extends "base.html" %}
+{% include 'snippets/nav.html' %}
 
-{% block head_title %}Market | {{ block.super}}{% endblock head_title %}
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
+
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
 
 {% block content %}
 
 <ul>
 {% for obj in object_list %}
-    <ul><a href='/market/{{ obj.land.mid }}/'>{{ obj.land }}</a>
-      <li>Amount : {{obj.amount}}</li>
-    <pre><li>Share Price:  {{obj.land.share_price}}</pre></li></ul>
+    <ul><a href='/market/{{ obj.land.mid }}/' class="btn btn-1 btn-1d">{{ obj.land }}</a>
+      <li class="list-group-item"><p style="font-family:courier;">Amount : {{obj.amount}}</p></li>
+    <li class="list-group-item"><p style="font-family:courier;">Share Price:  {{obj.land.share_price}}</p></li></ul>
 {% endfor %}
 </ul>
 
 {% endblock %}
+</div>
+</div>
+</div>
+
+
+{% include 'snippets/footer.html' %}

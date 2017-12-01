@@ -1,24 +1,39 @@
-{% extends "base.html" %}
+{% include 'snippets/nav.html' %}
 
-{% block head_title %}Fertilizer Info  | {{ block.super}}{% endblock head_title %}
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
+
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
 
 {% block content %}
 
-
 <div class="container">
   <h2 align ="center">Fertilizer Name :  {{ object.fertilizer_name }}</h2>
-  <ul class="list-group">
+  <br><br><ul class="list-group">
 
-<li class="list-group-item"> Price Per Unit  (kg)           : {{ object.unit_price }} Tk</li>
-<li class="list-group-item">Required Amount Per sq feet : {{ object.amount_per_sqft }} kg</li>
+<li class="list-group-item"> <p style="font-family:courier;">Price Per Unit  (kg)           : {{ object.unit_price }} Tk</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Required Amount Per sq feet : {{ object.amount_per_sqft }} kg</p></li>
 <!--<li class="list-group-item">Fertilizer                  : {{ object.fertilizer_name }}</li>-->
+
 
 
 
 </ul>
 </div>
+    <br><br><h4 align="center"><a href='/fertilizer/' class="btn btn-1 btn-1d" >Back </a></h4>
 <!-- <form action="/action_page.html">
 <input type="number" name="buy_share" min="0" max="object.share_quantity">
 <button type="submit">Buy Share</button>
 </form> -->
 {% endblock %}
+</div>
+</div>
+</div>
+
+
+{% include 'snippets/footer.html' %}

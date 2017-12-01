@@ -1,23 +1,31 @@
-{% extends "base.html" %}
 
-{% block head_title %}Market | {{ block.super}}{% endblock head_title %}
+{% include 'snippets/nav.html' %}
 
-{% block content %}
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
 
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
 
-<div class="container">
-  <h2 align ="center">Owner:  {{ object.owner }}</h2>
-  <ul class="list-group">
-<li class="list-group-item">Location: {{ object.location }}</li>
-<li class="list-group-item">Share Price: {{ object.share_price }}</li>
-<li class="list-group-item">Share Quantity: {{ object.share_quantity }}</li>
-<li class="list-group-item">Fertility Rate: {{ object.fertility_rate }}</li>
-<li class="list-group-item">Branch: {{ object.branch }}</li>
+        {% block content %}
+        <h3>Land Details</h3>
+
+  <h2 align ="center">Owner:  {{ object.owner }}</h2><br><br>
+  <ul align="center" class="list-group">
+<li class="list-group-item"><p style="font-family:courier;">Location: {{ object.location }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Share Price: {{ object.share_price }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Share Quantity: {{ object.share_quantity }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Fertility Rate: {{ object.fertility_rate }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Branch: {{ object.branch }}</p></li><br><br>
 
 {% if request.user.status == 2 %}
 <br>
 <button type="button" class="btn btn-outline-primary">
-    <a style="color:black;" href='/market/{{ object.id }}/buyshare'>Buy Share</a></button>
+    <a style="color:black;" href='/market/{{ object.id }}/buyshare' class="btn btn-1 btn-1d">Buy Share</a></button>
 <!-- <a href='/market/{{ object.id }}/buyshare'>Buy Share</a> -->
 {% endif %}
 
@@ -28,3 +36,7 @@
 <button type="submit">Buy Share</button>
 </form> -->
 {% endblock %}
+
+</div>
+</div>
+</div>

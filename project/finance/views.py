@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import SignUpForm, BuyShare, LandUpdate
 from .models import *
 
+
 def home(request):
     return render(request, "home.html", {})
 

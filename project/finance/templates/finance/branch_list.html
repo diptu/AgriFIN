@@ -1,14 +1,29 @@
-{% extends "base.html" %}
+{% include 'snippets/nav.html' %}
 
-{% block head_title %}Branch Lists| {{ block.super}}{% endblock head_title %}
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
 
-{% block content %}
-<h1>Branch List  :</h1>
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
+
+        {% block content %}
+<h3>Branch List  :</h3><br><br>
 
 <ul>
 {% for obj in object_list %}
-    <li><a href='/branch/{{ obj.id }}/'>{{ obj }}</a>
+    <li><a href='/branch/{{ obj.id }}/'  >{{ obj }}</a><br>
     ,<!--<pre>Number of Employee :  {{obj.no_of_employee}}</pre></li>-->
 {% endfor %}
 </ul>
 {% endblock %}
+
+</div>
+</div>
+</div>
+
+
+{% include 'snippets/footer.html' %}

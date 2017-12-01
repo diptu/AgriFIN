@@ -1,9 +1,24 @@
-{% extends "base.html" %}
-{% block content %}
-<title>{%block head_title %}Contact !!{{block.super}}{% endblock head_title %}</title>
+{% include 'snippets/nav.html' %}
 
-<h3>Contact</h3>
-<p style="font-family:courier;">Contact information is currently unavailable.<br>Please stay tuned.</p><hr>
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
 
-{{block.super}}
-{% endblock content %}
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
+
+          <h3>Contact</h3>
+
+        <br><br><br>  <p style="font-family:courier;">Contact information is currently unavailable.<br>Please stay tuned.</p>
+				<p style="font-family:courier;">Email : agrifin@northsouth.edu</p>
+				<p style="font-family:courier;">Mobile No : +880.......</p><br><br><br><hr>
+
+      </div>
+    </div>
+  </div>
+
+
+  {% include 'snippets/footer.html' %}

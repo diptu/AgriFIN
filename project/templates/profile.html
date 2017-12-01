@@ -1,9 +1,25 @@
-{% extends "base.html" %}
-{% block content %}
-<title>{%block head_title %}View Profile !!{{block.super}}{% endblock head_title %}</title>
+{% include 'snippets/nav.html' %}
 
-<h3>Profile </h3>
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
 
-{{alist.full_name}}
-{{block.super}}
-{% endblock content %}
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
+
+          <h3>Profile</h3>
+
+
+          {{alist.full_name}}
+        
+
+
+      </div>
+    </div>
+  </div>
+
+
+  {% include 'snippets/footer.html' %}

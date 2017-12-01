@@ -1,15 +1,29 @@
-{% extends "base.html" %}
 
-{% block head_title %}Market | {{ block.super}}{% endblock head_title %}
+{% include 'snippets/nav.html' %}
 
-{% block content %}
-<h1>Market</h1>
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
 
-<ul>
-{% for obj in object_list %}
-    <ul ><a href='/market/{{ obj.id }}/'>{{ obj }}</a>
-      <li>Branch : <a href='/branch/{{ obj.branch.id }}/'> {{obj.branch}}</li>
-    <pre><li>Share Price:  {{obj.share_price}}</pre></li></ul>
-{% endfor %}
-</ul>
-{% endblock %}
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
+
+        {% block content %}
+        <h3>Market</h3>
+        {% for obj in object_list %}
+            <hr><ul ><p align="center"><a href='/market/{{ obj.id }}/' class="btn btn-1 btn-1d" >{{ obj }}</a></p>
+              <li class="list-group-item"><p style="font-family:courier;">Branch : <a href='/branch/{{ obj.branch.id }}/' > {{obj.branch}}</p></li>
+            	<li class="list-group-item"><p style="font-family:courier;">Share Price:  {{obj.share_price}}</p></li></ul>
+        {% endfor %}
+
+        {% endblock %}
+
+      </div>
+    </div>
+  </div>
+
+
+  {% include 'snippets/footer.html' %}

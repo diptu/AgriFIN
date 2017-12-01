@@ -1,21 +1,34 @@
 
-{% extends "base.html" %}
 
-{% block head_title %}Crop List   | {{ block.super}}{% endblock head_title %}
+{% include 'snippets/nav.html' %}
 
-{% block content %}
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
 
-<div class="container">
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
+
+        {% block content %}
 <h1 align ="center">Crop Information</h1>
-
+<hr>
 <ul class="list-group">
 {% for obj in object_list %}
-    <br><ul align ="center"><a href='/crop/{{ obj.id }}/'>{{ obj }}</a>
-      <li class="list-group-item">Fertilizer  : <a href='/fertilizer/{{ obj.fertilizer.id }}'> {{obj.fertilizer_name}}</a></li>
-   <li class="list-group-item">Price Per Unit(kg) :  {{obj.unit_price}} Tk</li>
-  <li class="list-group-item">Required  Amount Per sq Feet :  {{obj.amount_per_sqft}}</li></ul>
-<br><hr>
+    <br><ul align ="center"><a href='/crop/{{ obj.id }}/' class="btn btn-1 btn-1d" >{{ obj }}</a>
+      <br><br><li class="list-group-item"><p style="font-family:courier;">Fertilizer  : <a href='/fertilizer/{{ obj.fertilizer.id }}'> {{obj.fertilizer_name}}</a></p></li>
+   <li class="list-group-item"><p style="font-family:courier;">Price Per Unit(kg) :  {{obj.unit_price}} Tk</p></li>
+  <li class="list-group-item"><p style="font-family:courier;">Required  Amount Per sq Feet :  {{obj.amount_per_sqft}}</p></li></ul>
+<br><br>
 {% endfor %}
 </ul>
-</div>
 {% endblock %}
+
+</div>
+</div>
+</div>
+
+
+{% include 'snippets/footer.html' %}

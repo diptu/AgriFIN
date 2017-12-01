@@ -1,6 +1,17 @@
-{% extends "base.html" %}
-{% block content %}
-<title>AgriFin</title>
 
-{{block.super}}
-{% endblock content %}
+{% include 'snippets/nav.html' %}
+
+
+
+
+<div class="banner">
+  {% include 'snippets/header.html' %}
+  <div class="banner-text">
+    <h1>আমরা শক্তি আমরা বল,<br>
+আমরা হলাম বদের দল!</h1>
+    <p>উপরের লাইনটি আবার পরুন!</p>
+  </div>
+</div>
+
+
+{% include 'snippets/footer.html' %}

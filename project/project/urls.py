@@ -46,4 +46,5 @@ urlpatterns = [
     url(r'^about/$',TemplateView.as_view(template_name='about.html'), name='about'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
 
+
 ]
