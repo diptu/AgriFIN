@@ -27,10 +27,12 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, {'template_name': 'finance/login.html'}, name='login'),
     url(r'^signup/$', signup, name='signup'),
     # url(r'^profile/$',profile),
-    url(r'^profile/$',UserDetail.as_view()),
+    url(r'^update/$',ProfileUpdateView.as_view()),
+    url(r'^profile/$',UserDetail.as_view(), name='profile'),
     url(r'^profile/history/$',HistoryListView.as_view()),
 
     url(r'^add/$',LandUpdateView.as_view()),
+
 
     url(r'^branch/$',BranchListView.as_view()),
     url(r'^branch/(?P<id>\d+)/$', BranchDetail.as_view()),

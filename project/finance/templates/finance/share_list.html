@@ -14,13 +14,15 @@
 
 <ul>
 {% for obj in object_list %}
-    <ul><a href='/market/{{ obj.land.mid }}/' class="btn btn-1 btn-1d">{{ obj.land }}</a>
+    <ul align="center"><a href='/market/{{ obj.land.id }}/' class="btn btn-1 btn-1d">{{ obj.land }}</a><br><br>
       <li class="list-group-item"><p style="font-family:courier;">Amount : {{obj.amount}}</p></li>
     <li class="list-group-item"><p style="font-family:courier;">Share Price:  {{obj.land.share_price}}</p></li></ul>
 {% endfor %}
 </ul>
 
 {% endblock %}
+
+	<br><br><ul align="center"><a href='/profile/' class="btn btn-1 btn-1d">Back</a><br><br>
 </div>
 </div>
 </div>

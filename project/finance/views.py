@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import View, ListView, DetailView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-from .forms import SignUpForm, BuyShare, LandUpdate
+from .forms import SignUpForm, BuyShare, LandUpdate,ProfileUpdate
 from .models import *
 
 
@@ -82,6 +82,32 @@ class UserDetail(LoginRequiredMixin, DetailView):
         context = get_object_or_404(User, id=self.request.user.id) # pk = rest_id
         context.status = StatusChoice.choices(context.status)
         return context
+
+
+
+class ProfileUpdateView(UserPassesTestMixin, FormView):
+    def test_func(self):
+        return self.request.user.status == 2
+
+    template_name = 'finance/profile_update.html'
+    form_class    = ProfileUpdate
+    success_url   = 'about'
+
+    def form_valid(self, form):
+        #print(request.user.status)
+        if form.is_valid():
+            first_name = form.cleaned_data.get('first_name')
+            last_name   = form.cleaned_data.get('last_name')
+            bio        = form.cleaned_data.get('bio')
+            location   = form.cleaned_data.get('location')
+
+
+            User.objects.update(first_name = first_name,
+                                last_name = last_name,
+                                location=location,
+                                bio =bio)
+        return redirect('about')
+
 
 class LandUpdateView(UserPassesTestMixin, FormView):
     def test_func(self):

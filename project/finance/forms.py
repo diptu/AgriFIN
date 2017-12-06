@@ -26,7 +26,23 @@ class LandUpdate(forms.Form):
 
     # class Meta:
     #     model = Land
+
+
+
+
     #     fields = ('land_id', 'user_id','buy_share',)
+class ProfileUpdate(forms.Form):
+    first_name       = forms.CharField()
+    last_name        = forms.CharField()
+    bio              = forms.CharField()
+    location         = forms.CharField()
+
+    #share_quantity = forms.IntegerField()
+    #fertility_rate = forms.DecimalField(min_value = 0.0, max_value = 100.0)
+    #worker_fee     = forms.IntegerField()
+    #other_cost     = forms.IntegerField()
+    #irrigation_fee = forms.IntegerField()
+
 
 class BuyShare(forms.Form):
     quantity = forms.IntegerField()

@@ -12,14 +12,16 @@
 
 {% block content %}
 
-<h2 align ="center">{{ object.first_name }} {{ object.last_name }}</h2>
+	<p style="font-family:courier;"><h2 align ="center">{{ object.first_name }} {{ object.last_name }}</h2></p>
 <ul class="list-group" align ="center">
     <li class="list-group-item"><p style="font-family:courier;">Username:  {{ object.username }}</p></li>
     <li class="list-group-item"><p style="font-family:courier;">Status: {{ object.status }}</p></li>
     <li class="list-group-item"><p style="font-family:courier;">Birth date: {{ object.birth_date }}</p></li>
+    <li class="list-group-item"><p style="font-family:courier;">Bio : {{ object.bio }}</p></li>
+    <li class="list-group-item"><p style="font-family:courier;">Email id : {{ object.email }}</p></li>
 
     {% if request.user.status == 2 %}
-    <a href='/profile/history/' class="btn btn-1 btn-1d">History</a>
+    <br><br><a href='/profile/history/' class="btn btn-1 btn-1d">History</a>
     {%elif request.user.status == 1%}
   <br><br>  <a href='/profile/history/' class="btn btn-1 btn-1d">Farms</a>
     {% endif %}
