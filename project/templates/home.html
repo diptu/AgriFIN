@@ -7,6 +7,9 @@
 <div class="banner">
   {% include 'snippets/header.html' %}
   <div class="banner-text">
+  {% if user.is_authenticated %}
+  <h1><p>Hello {{ user.username }}!</p></h1>
+  {% endif %}
     <h1>আমরা শক্তি আমরা বল,<br>
 আমরা হলাম বদের দল!</h1>
     <p>উপরের লাইনটি আবার পরুন!</p>
