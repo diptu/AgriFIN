@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'social_django',
-
+    'star_ratings',
     'finance'
 ]
 

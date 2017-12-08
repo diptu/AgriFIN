@@ -14,6 +14,22 @@
         {% block content %}
         <h3>Land Details</h3>
 
+        <h2>Rating</h2>
+
+		{% load ratings	%}
+			<html>
+			{% ratings object%}
+			</html>
+		{% load static %}
+		<html>
+		<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %} ">
+		<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %} "></script>
+		</html>
+
+
+
+
+
   <h2 align ="center">Owner:  {{ object.owner }}</h2><br><br>
   <ul align="center" class="list-group">
 <li class="list-group-item"><p style="font-family:courier;">Location: {{ object.location }}</p></li>

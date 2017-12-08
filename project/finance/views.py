@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from django.views.generic import View, ListView, DetailView, FormView
+from django.views.generic import View, ListView, DetailView, FormView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from .forms import SignUpForm, BuyShare, LandUpdate,ProfileUpdate
@@ -17,8 +17,9 @@ from django.contrib import messages
 
 from social_django.models import UserSocialAuth
 
-def home(request):
-    return render(request, "home.html", {})
+class HomePageView(TemplateView):
+
+    template_name = "home.html"
 
 
 @login_required

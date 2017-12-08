@@ -1,0 +1,44 @@
+
+PERSON:
+	person_id, user_name, password, b_day, profile_picture, type, full_name, age, gender, address, NID, qualification, email.
+
+
+INVESTOR:
+	person_id, user_name, NID, bank_account_credentials.
+
+
+FARMER:
+	person_id, user_name, NID, bank_account_credentials.
+
+
+EMPLOYEE:
+	person_id, user_name, NID, branch_id(that he works on).
+
+
+LAND:
+	land_id, area, fertility_rate, location, person_id(owner ie farmer), branch_id(the branch in charge), share_price, share_quantity.
+
+
+OFFICE:
+
+	BRANCH:
+	#	#####	branch_id, location, no_of_employee.
+
+
+CROP:
+	crop_name, unit_price, amount_per_sqft.
+
+
+FERTILIZER(dependent on CROP):
+	 crop_name, fertilizer_name, unit_price, amount_per_sqft,
+
+
+SHARE(dependent on LAND):
+	land_id, investor_id, share_bought.
+
+
+REVENUE(dependent on LAND):
+	land_id, total_cost, total_revenue
+
+BUDGET(dependent on LAND):
+ land_id, crop_id, other_cost, worker_fee, irrigation_fees, total_cost,.
