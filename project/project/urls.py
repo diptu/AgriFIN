@@ -26,7 +26,11 @@ from finance.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
-    
+    url(r'^settings/$', settings, name='settings'),
+    url(r'^settings/password/$', password, name='password'),
+
+
+
     url(r'^$', home, name='home'),
     # url(r'^login/$',auth_views.login, name='login'),
     url(r'^login/$', auth_views.login, {'template_name': 'finance/login.html'}, name='login'),
