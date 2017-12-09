@@ -145,22 +145,24 @@ class ProfileUpdateView(UserPassesTestMixin, FormView):
 
     template_name = 'finance/profile_update.html'
     form_class    = ProfileUpdate
-    success_url   = 'about'
+    success_url   = 'profile'
 
     def form_valid(self, form):
         #print(request.user.status)
         if form.is_valid():
-            first_name = form.cleaned_data.get('first_name')
-            last_name   = form.cleaned_data.get('last_name')
-            bio        = form.cleaned_data.get('bio')
-            location   = form.cleaned_data.get('location')
+            #first_name      = form.cleaned_data.get('first_name')
+            #last_name       = form.cleaned_data.get('last_name')
+            bio             = form.cleaned_data.get('bio')
+            location        = form.cleaned_data.get('location')
+            email        = form.cleaned_data.get('email')
 
 
-            User.objects.update(first_name = first_name,
-                                last_name = last_name,
+            User.objects.update(#first_name = first_name,
+                                #last_name = last_name,
                                 location=location,
+                                email=email,
                                 bio =bio)
-        return redirect('about')
+        return redirect('profile')
 
 
 class LandUpdateView(UserPassesTestMixin, FormView):
@@ -172,7 +174,7 @@ class LandUpdateView(UserPassesTestMixin, FormView):
     success_url   = 'about'
 
     def form_valid(self, form):
-        print(request.user.status)
+        #print(request.user.status)
         if form.is_valid():
             worker = form.cleaned_data.get('worker_fee')
             irrigation = form.cleaned_data.get('irrigation_fee')
@@ -186,6 +188,7 @@ class LandUpdateView(UserPassesTestMixin, FormView):
             location       = form.cleaned_data.get('location')
             share_price    = form.cleaned_data.get('share_price')
             share_quantity = form.cleaned_data.get('share_quantity')
+            #total_share    = form.cleaned_data.get('share_quantity')
             fertility_rate = form.cleaned_data.get('fertility_rate')
 
             Land.objects.create(budget = budget,
@@ -193,6 +196,7 @@ class LandUpdateView(UserPassesTestMixin, FormView):
                                 location=location,
                                 share_price=share_price,
                                 share_quantity=share_quantity,
+                                total_share=share_quantity,
                                 fertility_rate=fertility_rate)
         return redirect('about')
 
@@ -216,6 +220,7 @@ class BuyShareView(UserPassesTestMixin, FormView):
             # print(quantity)
             Share.objects.create(investor = user, land = land, amount = quantity)
             land.share_quantity -= quantity
+            land.share_sold      = ((land.total_share-land.share_quantity)/(land.total_share))*100
             land.save()
         return redirect('about')
 

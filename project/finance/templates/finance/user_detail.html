@@ -20,6 +20,9 @@
     <li class="list-group-item"><p style="font-family:courier;">Bio : {{ object.bio }}</p></li>
     <li class="list-group-item"><p style="font-family:courier;">Email id : {{ object.email }}</p></li>
 
+		<br><br><p style="font-family:courier;" ><strong><font color="#000000">last loged in  </font>(UTC):</strong> {{ object.last_login }}</p>
+		<p style="font-family:courier;" ><strong><font color="#000000">			Joined on        </font>(UTC):</strong> {{ object.date_joined }}</p>
+
     {% if request.user.status == 2 %}
     <br><br><a href='/profile/history/' class="btn btn-1 btn-1d">History</a>
     {%elif request.user.status == 1%}

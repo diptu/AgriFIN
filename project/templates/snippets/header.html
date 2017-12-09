@@ -14,8 +14,10 @@
 
         <a  href="/profile">View Profie</a>
         <a  href="/market">Market</a>
+        {% if request.user.status == 2 %}
+        <a  href="/update">Update  Profie</a>
 
-        {% if request.user.status == 3 %}
+        {% elif request.user.status == 3 %}
         <a  href="/crop">View Crop info </a>
         <a  href="/add">Add </a>
         {% endif %}

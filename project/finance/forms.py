@@ -32,10 +32,11 @@ class LandUpdate(forms.Form):
 
     #     fields = ('land_id', 'user_id','buy_share',)
 class ProfileUpdate(forms.Form):
-    first_name       = forms.CharField()
-    last_name        = forms.CharField()
-    bio              = forms.CharField()
-    location         = forms.CharField()
+    #first_name       = forms.CharField(required=False)
+    #last_name        = forms.CharField(required=False)
+    bio              = forms.CharField(required=False)
+    location         = forms.CharField(required=False)
+    email            = forms.EmailField(required=False)
 
     #share_quantity = forms.IntegerField()
     #fertility_rate = forms.DecimalField(min_value = 0.0, max_value = 100.0)

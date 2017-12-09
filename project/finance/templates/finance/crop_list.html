@@ -6,15 +6,15 @@
 	<div class="banner abt-bnr">
 		{% include 'snippets/header.html' %}
 	</div>
-	<!--//banner-->
+
+
 
   <div class="about">
 		<div class="container">
 			<div class="about-info">
 
         {% block content %}
-<h1 align ="center">Crop Information</h1>
-<hr>
+
 <ul class="list-group">
 {% for obj in object_list %}
     <br><ul align ="center"><a href='/crop/{{ obj.id }}/' class="btn btn-1 btn-1d" >{{ obj }}</a>

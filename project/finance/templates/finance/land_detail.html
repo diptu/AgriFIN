@@ -30,18 +30,76 @@
 
 
 
-  <h2 align ="center">Owner:  {{ object.owner }}</h2><br><br>
-  <ul align="center" class="list-group">
+
+		<div class="grid_3 grid_5">
+						<h3>Share selling progress </h3>
+						<div class="tab-content">
+							<div class="tab-pane active" id="domprogress">
+								{% if  object.share_sold  < 100 %}
+								<div class="progress">
+
+									<div class="progress-bar progress-bar-primary" style="width: {{ object.share_sold }}%"></div>
+								</div>
+								<p>completed   <code>{{ object.share_sold }}</code> %</p>
+
+								{% else %}
+
+								<div class="progress">
+
+							<div class="progress-bar progress-bar-success" style="width: {{ object.share_sold }}%"></div>
+						</div>
+								<p>completed  <code>{{ object.share_sold }}</code> % </p>
+
+
+							</div>
+							{% endif %}
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 align ="center">Owner:  {{ object.owner }}</h2><br><br>
+<ul align="center" class="list-group">
 <li class="list-group-item"><p style="font-family:courier;">Location: {{ object.location }}</p></li>
 <li class="list-group-item"><p style="font-family:courier;">Share Price: {{ object.share_price }}</p></li>
-<li class="list-group-item"><p style="font-family:courier;">Share Quantity: {{ object.share_quantity }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Remaining Share Quantity: {{ object.share_quantity }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Total amount of share: {{ object.total_share }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;"> share sold : {{ object.share_sold }}  % </p></li>
 <li class="list-group-item"><p style="font-family:courier;">Fertility Rate: {{ object.fertility_rate }}</p></li>
+
+
+
+
+
+
+
+
 <li class="list-group-item"><p style="font-family:courier;">Branch: {{ object.branch }}</p></li><br><br>
+
 
 {% if request.user.status == 2 %}
 <br>
+	{% if  object.share_sold  < 100 %}
 <button type="button" class="btn btn-outline-primary">
     <a style="color:black;" href='/market/{{ object.id }}/buyshare' class="btn btn-1 btn-1d">Buy Share</a></button>
+	{% endif %}
 <!-- <a href='/market/{{ object.id }}/buyshare'>Buy Share</a> -->
 {% endif %}
 

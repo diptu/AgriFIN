@@ -49,6 +49,8 @@ class Land(models.Model):
     share_quantity  = models.IntegerField()
     fertility_rate  = models.IntegerField()
     branch          = models.ForeignKey(Branch, null=True, blank=True)
+    total_share     = models.IntegerField()
+    share_sold      = models.IntegerField(default=0)
 
     def __str__(self):
         # return self.owner.username
