@@ -43,6 +43,15 @@ class ProfileUpdate(forms.Form):
     #worker_fee     = forms.IntegerField()
     #other_cost     = forms.IntegerField()
     #irrigation_fee = forms.IntegerField()
+    def __init__(self, *args, **kwargs):
+        #self.user = kwargs.pop('user')   # the blog entry instance
+        super().__init__(*args, **kwargs)
+
+    def save(self):
+        #user = super().save(commit=False)
+        #comment.entry = self.entry
+        #user.save()
+        return self
 
 
 class BuyShare(forms.Form):
