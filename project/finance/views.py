@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import View, ListView, DetailView, FormView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-from .forms import SignUpForm, BuyShare, LandUpdate,ProfileUpdate
+from .forms import *
 from .models import *
 
 
@@ -200,13 +200,28 @@ class LandUpdateView(UserPassesTestMixin, FormView):
                                 fertility_rate=fertility_rate)
         return redirect('about')
 
+class RevenueView(FormView):
+    # pass
+    template_name = 'finance/revenue.html'
+    form_class    = RevenueForm
+    success_url   = 'profile'
+
+    def form_valid(self, form):
+        if form.is_valid():
+            quantity = form.cleaned_data.get('total_revenue')
+            land = Land.objects.get(id = self.kwargs.get('id'))
+            for i in Share.objects.filter(land = land):
+                print((quantity*i.percentage)/100)
+            return redirect('about')
+
+
 class BuyShareView(UserPassesTestMixin, FormView):
     def test_func(self):
         return self.request.user.status == 2
 
     template_name = 'finance/action_page.html'
     form_class    = BuyShare
-    success_url   = 'about'
+    success_url   = 'profile'
 
     def form_valid(self, form):
         if form.is_valid():

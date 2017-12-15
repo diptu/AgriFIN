@@ -14,7 +14,7 @@ class User(AbstractUser):
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     status = models.IntegerField(choices=STATUS_CHOICES, default=2)
-
+    account = models.IntegerField(default=0)
 
     # def __str__(self):
     #     return self.land
@@ -88,9 +88,10 @@ class Crop(models.Model):
 
 class Revenue(models.Model):
     total_revenue   = models.DecimalField( max_digits=20, decimal_places=2)
-    budget          = models.OneToOneField(Budget)
+    land_revenue    = models.OneToOneField(Land)
 
-
+    def __str__(self):
+        return str(self.land_revenue)
 
 
     def get_total_revenue(self):

@@ -16,7 +16,8 @@
 {% for obj in object_list %}
     <ul align="center"><a href='/market/{{ obj.land.id }}/' class="btn btn-1 btn-1d">{{ obj.land }}</a><br><br>
       <li class="list-group-item"><p style="font-family:courier;">Amount : {{obj.amount}}</p></li>
-    <li class="list-group-item"><p style="font-family:courier;">Share Price:  {{obj.land.share_price}}</p></li></ul>
+    <li class="list-group-item"><p style="font-family:courier;">Share Price:  {{obj.land.share_price}}</p></li>
+    <li class="list-group-item"><p style="font-family:courier;">Percentage:  {{obj.percentage}} %</p></li></ul>
 {% endfor %}
 </ul>
 

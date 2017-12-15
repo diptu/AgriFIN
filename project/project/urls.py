@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^fertilizer/$',FertilizerListView.as_view()),
     url(r'^fertilizer/(?P<id>\d+)/$', FertilizerDetail.as_view()),
     url(r'^market/(?P<id>\d+)/buyshare/$', BuyShareView.as_view()),
+    url(r'^market/(?P<id>\d+)/sell/$', RevenueView.as_view()),
     url(r'^contact/$',TemplateView.as_view(template_name='contact.html')),
     url(r'^about/$',TemplateView.as_view(template_name='about.html'), name='about'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),

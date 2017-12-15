@@ -61,6 +61,10 @@ class BuyShare(forms.Form):
         model = Land
         fields = ('land_id', 'user_id','buy_share',)
 
+class RevenueForm(forms.Form):
+    total_revenue = forms.IntegerField()
+
+
 
 STATUS_CHOICES = (
     (1, ("Farmer")),
