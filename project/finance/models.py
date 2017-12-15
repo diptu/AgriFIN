@@ -57,13 +57,13 @@ class Land(models.Model):
         return self.location
 
 class Share(models.Model):
-    investor = models.ForeignKey(User, limit_choices_to = { 'status': 2})
-    land     = models.ForeignKey(Land)
-    amount   = models.IntegerField()
+    investor     = models.ForeignKey(User, limit_choices_to = { 'status': 2})
+    land         = models.ForeignKey(Land)
+    amount       = models.IntegerField()
+    percentage   = models.IntegerField(null = True)
 
     def __str__(self):
         return self.investor.username
-
 
 
 
@@ -89,6 +89,7 @@ class Crop(models.Model):
 class Revenue(models.Model):
     total_revenue   = models.DecimalField( max_digits=20, decimal_places=2)
     budget          = models.OneToOneField(Budget)
+
 
 
 

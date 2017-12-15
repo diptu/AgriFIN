@@ -217,10 +217,26 @@ class BuyShareView(UserPassesTestMixin, FormView):
             user = User.objects.get(id=self.request.user.id)
             # print(self.kwargs.get('id'))
             quantity = form.cleaned_data.get('quantity')
-            # print(quantity)
-            Share.objects.create(investor = user, land = land, amount = quantity)
+            # percentage = land.total_share -(Share.amount)
+            # print(percentage)
+
             land.share_quantity -= quantity
-            land.share_sold      = ((land.total_share-land.share_quantity)/(land.total_share))*100
+
+            land.share_sold   = ((land.total_share-land.share_quantity)/(land.total_share))*100
+
+            if Share.objects.filter(investor = user, land = land).exists():
+                data = Share.objects.get(investor = user, land = land)
+                new_amount = data.amount + quantity
+                Share.objects.filter(investor = user, land = land).update(amount = new_amount)
+                percent   = 100 - ((land.total_share - new_amount)/(land.total_share))*100
+                Share.objects.filter(investor = user, land = land).update(percentage = percent)
+
+            else:
+                data = Share(investor = user, land = land, amount = quantity)
+                data.percentage   = 100 - ((land.total_share - data.amount)/(land.total_share))*100
+                data.save()
+
+            print(Share.objects.get(investor = user, land = land).percentage)
             land.save()
         return redirect('about')
 
