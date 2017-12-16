@@ -24,6 +24,9 @@
 			<div class=" contact-form">
 {% block content %}
 <h2 align= "center">Sell Share</h2><hr>
+<h1 align= "center">{{ object.location }}</h1>
+<h1 align= "center">Budget : {{ object.budget }}</h1>
+<h1 align= "center">Total Share : {{ object.total_share }}</h1>
 <form method="post">
   {% csrf_token %}
   {% for field in form %}

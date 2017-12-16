@@ -171,7 +171,7 @@ class LandUpdateView(UserPassesTestMixin, FormView):
 
     template_name = 'finance/land_update.html'
     form_class    = LandUpdate
-    success_url   = 'about'
+    success_url   = 'profile'
 
     def form_valid(self, form):
         #print(request.user.status)
@@ -198,22 +198,33 @@ class LandUpdateView(UserPassesTestMixin, FormView):
                                 share_quantity=share_quantity,
                                 total_share=share_quantity,
                                 fertility_rate=fertility_rate)
-        return redirect('about')
+        return redirect('profile')
 
-class RevenueView(FormView):
-    # pass
+class RevenueView(UserPassesTestMixin, FormView, DetailView):
+    def test_func(self):
+        return self.request.user.status == 3
+
     template_name = 'finance/revenue.html'
     form_class    = RevenueForm
     success_url   = 'profile'
 
     def form_valid(self, form):
         if form.is_valid():
-            quantity = form.cleaned_data.get('total_revenue')
-            land = Land.objects.get(id = self.kwargs.get('id'))
-            for i in Share.objects.filter(land = land):
-                print((quantity*i.percentage)/100)
-            return redirect('about')
-
+            quantity  = form.cleaned_data.get('total_revenue')
+            land      = Land.objects.get(id = self.kwargs.get('id'))
+            shared    = Share.objects.filter(land = land)
+            for i in shared:
+                value = i.investor.account + (quantity * i.percentage)/100
+                User.objects.filter(id = i.investor.id).update(account = value)
+                print(value)
+                i.delete()
+                # print((quantity * i.percentage)/100)
+            return redirect('profile')
+    def get_object(self, *args, **kwargs):
+        # context = get_object_or_404(User, id=self.request.user.id) # pk = rest_id
+        context = Land.objects.get(id = self.kwargs.get('id'))
+        # context.status = StatusChoice.choices(context.status)
+        return context
 
 class BuyShareView(UserPassesTestMixin, FormView):
     def test_func(self):
@@ -253,7 +264,7 @@ class BuyShareView(UserPassesTestMixin, FormView):
 
             print(Share.objects.get(investor = user, land = land).percentage)
             land.save()
-        return redirect('about')
+        return redirect('profile')
 
 class LandDetail(DetailView):
     model = Land

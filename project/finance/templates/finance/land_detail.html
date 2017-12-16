@@ -100,7 +100,12 @@
 <button type="button" class="btn btn-outline-primary">
     <a style="color:black;" href='/market/{{ object.id }}/buyshare' class="btn btn-1 btn-1d">Buy Share</a></button>
 	{% endif %}
-<!-- <a href='/market/{{ object.id }}/buyshare'>Buy Share</a> -->
+<!-- <a href='/market/{{ object.id }}/buyshare'>Buy Share</a><br>
+<a href='/market/{{ object.id }}/sell'>Sell</a> -->
+{% elif request.user.status == 3 %}
+<button type="button" class="btn btn-outline-primary">
+    <a style="color:black;" href='/market/{{ object.id }}/sell' class="btn btn-1 btn-1d">Sell</a></button>
+
 {% endif %}
 
 </ul>
