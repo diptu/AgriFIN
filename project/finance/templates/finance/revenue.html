@@ -1,0 +1,51 @@
+{% include 'snippets/nav.html' %}
+<style>
+.contact-form input, select {
+    display: inline-block;
+    background: none;
+    border: 1px solid #8D8D8D;
+    width: 100%;
+    outline: none;
+    font-size: 1em;
+    color: #8D8D8D;
+    padding: .8em 1em;
+    -webkit-appearance: none;
+}
+
+</style>
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
+  <!--contact-->
+	<div class="contact">
+		<div class="container">
+			<div class=" contact-form">
+{% block content %}
+<h2 align= "center">Sell Share</h2><hr>
+<h1 align= "center">{{ object.location }}</h1>
+<h1 align= "center">Budget : {{ object.budget }}</h1>
+<h1 align= "center">Total Share : {{ object.total_share }}</h1>
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    <p>
+      <center>{{ field.label_tag }}</center><br>
+      {{ field }}
+  </p><br><br>
+{% endfor %}
+<center><button class="btn btn-1 btn-1d" type="submit"> Submit </button></center>
+</form>
+{% endblock %}
+
+</div>
+
+<div class="clearfix"> </div>
+</form>
+</div>
+</div>
+</div>
+<!--//contact-->
+
+{% include 'snippets/footer.html' %}

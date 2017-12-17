@@ -1,24 +1,69 @@
-{% extends "base.html" %}
+{% include 'snippets/nav.html' %}
 
-{% block head_title %}Market | {{ block.super}}{% endblock head_title %}
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+
+
+						<!--services-->
+						<div class="services" id="services">
+							<div class="container">
+
+								<div class="service-grids">
+
+									<div class="col-md-12 srvc-grids-info">
+										<div class="srvc-img">
+											<img src="/static/images/icon2.png" alt="">
+										</div>
+										<h5>Overview on crop</h5>
+										<p> For decades, agriculture has been associated with the production of essential food crops. At present, agriculture above and beyond farming includes forestry, dairy, fruit cultivation, poultry, bee keeping, mushroom, arbitrary, etc.
+											 Agriculture plays a critical role in the entire life of a given economy. Agriculture is the backbone of the economic system of our country.
+											 </p>
+									</div>
+
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+						<!--//services-->
+
+		<!--//banner-->
+
+
+	<!--//banner-->
+
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
 
 {% block content %}
 
-
 <div class="container">
-  <h2 align ="center">Crop Name :  {{ object.crop_name }}</h2>
+
+		<h2 align ="center">  {{ object.crop_name }}</h2>
+
   <ul class="list-group">
 
-<li class="list-group-item"> Price Per Unit  (kg)           : {{ object.unit_price }} Tk</li>
-<li class="list-group-item">Required Amount Per sq feet : {{ object.amount_per_sqft }} kg </li>
+<li class="list-group-item"><p style="font-family:courier;"> Price Per Unit  (kg)           : {{ object.unit_price }} Tk</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Required Amount Per sq feet : {{ object.amount_per_sqft }} kg </p></li>
 <!--<li class="list-group-item">Fertilizer                  : {{ object.fertilizer_name }}</li>-->
 
-  <li class="list-group-item">Fertilizer :<a href='/fertilizer/{{ object.fertilizer.id }}'>{{ object.fertilizer_name }}</a></li>
+  <li class="list-group-item"><p style="font-family:courier;">Fertilizer :      <a href='/fertilizer/{{ object.fertilizer.id }}'>{{ object.fertilizer_name }}</a></p></li>
 
 </ul>
 </div>
+
+<br><br><h4 align="center"><a href='/crop/' class="btn btn-1 btn-1d" >Back </a></h4>
 <!-- <form action="/action_page.html">
 <input type="number" name="buy_share" min="0" max="object.share_quantity">
 <button type="submit">Buy Share</button>
 </form> -->
 {% endblock %}
+
+      </div>
+    </div>
+  </div>
+
+
+  {% include 'snippets/footer.html' %}

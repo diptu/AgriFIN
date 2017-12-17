@@ -1,24 +1,111 @@
-{% extends "base.html" %}
 
-{% block head_title %}Market | {{ block.super}}{% endblock head_title %}
+{% include 'snippets/nav.html' %}
 
-{% block content %}
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
+
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
+
+        {% block content %}
+        <h3>Land Details</h3>
+
+        <h2>Rating</h2>
+
+		{% load ratings	%}
+			<html>
+			{% ratings object%}
+			</html>
+		{% load static %}
+		<html>
+		<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %} ">
+		<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %} "></script>
+		</html>
 
 
-<div class="container">
-  <h2 align ="center">Owner:  {{ object.owner }}</h2>
-  <ul class="list-group">
-<li class="list-group-item">Location: {{ object.location }}</li>
-<li class="list-group-item">Share Price: {{ object.share_price }}</li>
-<li class="list-group-item">Share Quantity: {{ object.share_quantity }}</li>
-<li class="list-group-item">Fertility Rate: {{ object.fertility_rate }}</li>
-<li class="list-group-item">Branch: {{ object.branch }}</li>
+
+
+
+
+		<div class="grid_3 grid_5">
+						<h3>Share selling progress </h3>
+						<div class="tab-content">
+							<div class="tab-pane active" id="domprogress">
+								{% if  object.share_sold  < 100 %}
+								<div class="progress">
+
+									<div class="progress-bar progress-bar-primary" style="width: {{ object.share_sold }}%"></div>
+								</div>
+								<p>completed   <code>{{ object.share_sold }}</code> %</p>
+
+								{% else %}
+
+								<div class="progress">
+
+							<div class="progress-bar progress-bar-success" style="width: {{ object.share_sold }}%"></div>
+						</div>
+								<p>completed  <code>{{ object.share_sold }}</code> % </p>
+
+
+							</div>
+							{% endif %}
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 align ="center">Owner:  {{ object.owner }}</h2><br><br>
+<ul align="center" class="list-group">
+<li class="list-group-item"><p style="font-family:courier;">Location: {{ object.location }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Share Price: {{ object.share_price }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Remaining Share Quantity: {{ object.share_quantity }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;">Total amount of share: {{ object.total_share }}</p></li>
+<li class="list-group-item"><p style="font-family:courier;"> share sold : {{ object.share_sold }}  % </p></li>
+<li class="list-group-item"><p style="font-family:courier;">Fertility Rate: {{ object.fertility_rate }}</p></li>
+
+
+
+
+
+
+
+
+<li class="list-group-item"><p style="font-family:courier;">Branch: {{ object.branch }}</p></li><br><br>
+
 
 {% if request.user.status == 2 %}
 <br>
+	{% if  object.share_sold  < 100 %}
 <button type="button" class="btn btn-outline-primary">
-    <a style="color:black;" href='/market/{{ object.id }}/buyshare'>Buy Share</a></button>
-<!-- <a href='/market/{{ object.id }}/buyshare'>Buy Share</a> -->
+    <a style="color:black;" href='/market/{{ object.id }}/buyshare' class="btn btn-1 btn-1d">Buy Share</a></button>
+	{% endif %}
+<!-- <a href='/market/{{ object.id }}/buyshare'>Buy Share</a><br>
+<a href='/market/{{ object.id }}/sell'>Sell</a> -->
+{% elif request.user.status == 3 %}
+<button type="button" class="btn btn-outline-primary">
+    <a style="color:black;" href='/market/{{ object.id }}/sell' class="btn btn-1 btn-1d">Sell</a></button>
+
 {% endif %}
 
 </ul>
@@ -28,3 +115,7 @@
 <button type="submit">Buy Share</button>
 </form> -->
 {% endblock %}
+
+</div>
+</div>
+</div>

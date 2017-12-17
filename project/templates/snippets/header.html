@@ -1,0 +1,68 @@
+<!--header-->
+<div class="header">
+  <div class="container">
+    <div class="logo">
+      <a href="/"> <img src="/static/images/logo.png" alt=""/></a>
+    </div>
+    <div class="top-nav">
+      <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+        <h3>Menu</h3>
+        <a href="/" class="active">Home</a>
+        <a href="/about">About us</a>
+        <a href="/contact">Contact</a>
+        {% if request.user.is_authenticated %}
+
+        <a  href="/profile">View Profie</a>
+        <a  href="/market">Market</a>
+        {% if request.user.status == 2 %}
+        <a  href="/update">Update  Profie</a>
+
+        {% elif request.user.status == 3 %}
+        <a  href="/crop">View Crop info </a>
+        <a  href="/add">Add </a>
+        {% endif %}
+        <a  href="/logout">Logout</a>
+
+        {% else %}
+
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Login</a>
+
+        {% endif %}
+
+
+
+
+
+
+      </nav>
+      <div class="main buttonset">
+          <!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
+          <button id="showRightPush"><img src="/static/images/menu-icon.png" alt=""/></button>
+          <!--<span class="menu"></span>-->
+      </div>
+      <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+      <script src="/static/js/classie.js"></script>
+      <script>
+        var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+        showRightPush = document.getElementById( 'showRightPush' ),
+        body = document.body;
+
+        showRightPush.onclick = function() {
+          classie.toggle( this, 'active' );
+          classie.toggle( body, 'cbp-spmenu-push-toleft' );
+          classie.toggle( menuRight, 'cbp-spmenu-open' );
+          disableOther( 'showRightPush' );
+        };
+
+        function disableOther( button ) {
+          if( button !== 'showRightPush' ) {
+            classie.toggle( showRightPush, 'disabled' );
+          }
+        }
+      </script>
+      <!-- /script-for-menu -->
+    </div>
+  </div>
+</div>
+<!--//header-->

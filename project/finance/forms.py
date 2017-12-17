@@ -26,7 +26,33 @@ class LandUpdate(forms.Form):
 
     # class Meta:
     #     model = Land
+
+
+
+
     #     fields = ('land_id', 'user_id','buy_share',)
+class ProfileUpdate(forms.Form):
+    #first_name       = forms.CharField(required=False)
+    #last_name        = forms.CharField(required=False)
+    bio              = forms.CharField(required=False)
+    location         = forms.CharField(required=False)
+    email            = forms.EmailField(required=False)
+
+    #share_quantity = forms.IntegerField()
+    #fertility_rate = forms.DecimalField(min_value = 0.0, max_value = 100.0)
+    #worker_fee     = forms.IntegerField()
+    #other_cost     = forms.IntegerField()
+    #irrigation_fee = forms.IntegerField()
+    def __init__(self, *args, **kwargs):
+        #self.user = kwargs.pop('user')   # the blog entry instance
+        super().__init__(*args, **kwargs)
+
+    def save(self):
+        #user = super().save(commit=False)
+        #comment.entry = self.entry
+        #user.save()
+        return self
+
 
 class BuyShare(forms.Form):
     quantity = forms.IntegerField()
@@ -34,6 +60,10 @@ class BuyShare(forms.Form):
     class Meta:
         model = Land
         fields = ('land_id', 'user_id','buy_share',)
+
+class RevenueForm(forms.Form):
+    total_revenue = forms.IntegerField()
+
 
 
 STATUS_CHOICES = (

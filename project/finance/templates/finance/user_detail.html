@@ -1,25 +1,40 @@
-{% extends "base.html" %}
+{% include 'snippets/nav.html' %}
 
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
 
-{% block head_title %}User Information | {{ block.super}}{% endblock head_title %}
-
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
 
 {% block content %}
-{%if context %}
-    <h1>hello</h1>
-{%endif%}
-<div class="container">
-<h2 align ="center">{{ object.first_name }} {{ object.last_name }}</h2>
-<ul class="list-group">
-    <li class="list-group-item">Username:  {{ object.username }}</li>
-    <li class="list-group-item">Status: {{ object.status }}</li>
-    <li class="list-group-item">Birth date: {{ object.birth_date }}</li>
+
+	<p style="font-family:courier;"><h2 align ="center">{{ object.first_name }} {{ object.last_name }}</h2></p>
+<ul class="list-group" align ="center">
+    <li class="list-group-item"><p style="font-family:courier;">Username:  {{ object.username }}</p></li>
+    <li class="list-group-item"><p style="font-family:courier;">Status: {{ object.status }}</p></li>
+    <li class="list-group-item"><p style="font-family:courier;">Birth date: {{ object.birth_date }}</p></li>
+    <li class="list-group-item"><p style="font-family:courier;">Bio : {{ object.bio }}</p></li>
+    <li class="list-group-item"><p style="font-family:courier;">Email id : {{ object.email }}</p></li>
+
+		<br><br><p style="font-family:courier;" ><strong><font color="#000000">last loged in  </font>(UTC):</strong> {{ object.last_login }}</p>
+		<p style="font-family:courier;" ><strong><font color="#000000">			Joined on        </font>(UTC):</strong> {{ object.date_joined }}</p>
 
     {% if request.user.status == 2 %}
-    <a href='/profile/history/'>History</a>
+    <br><br><a href='/profile/history/' class="btn btn-1 btn-1d">History</a>
     {%elif request.user.status == 1%}
-    <a href='/profile/history/'>Farms</a>
+  <br><br>  <a href='/profile/history/' class="btn btn-1 btn-1d">Farms</a>
     {% endif %}
 </ul>
-</div>
+
 {% endblock %}
+
+      </div>
+    </div>
+  </div>
+
+
+  {% include 'snippets/footer.html' %}

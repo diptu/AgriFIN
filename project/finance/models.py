@@ -13,8 +13,8 @@ class User(AbstractUser):
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
-    status = models.IntegerField(choices=STATUS_CHOICES, default=1)
-
+    status = models.IntegerField(choices=STATUS_CHOICES, default=2)
+    account = models.IntegerField(default=0)
 
     # def __str__(self):
     #     return self.land
@@ -49,19 +49,21 @@ class Land(models.Model):
     share_quantity  = models.IntegerField()
     fertility_rate  = models.IntegerField()
     branch          = models.ForeignKey(Branch, null=True, blank=True)
+    total_share     = models.IntegerField()
+    share_sold      = models.IntegerField(default=0)
 
     def __str__(self):
         # return self.owner.username
         return self.location
 
 class Share(models.Model):
-    investor = models.ForeignKey(User, limit_choices_to = { 'status': 2})
-    land     = models.ForeignKey(Land)
-    amount   = models.IntegerField()
+    investor     = models.ForeignKey(User, limit_choices_to = { 'status': 2})
+    land         = models.ForeignKey(Land)
+    amount       = models.IntegerField()
+    percentage   = models.IntegerField(null = True)
 
     def __str__(self):
         return self.investor.username
-
 
 
 
@@ -86,8 +88,10 @@ class Crop(models.Model):
 
 class Revenue(models.Model):
     total_revenue   = models.DecimalField( max_digits=20, decimal_places=2)
-    budget          = models.OneToOneField(Budget)
+    land_revenue    = models.OneToOneField(Land)
 
+    def __str__(self):
+        return str(self.land_revenue)
 
 
     def get_total_revenue(self):

@@ -1,16 +1,181 @@
-{% extends 'base.html' %}
 
-{% block content %}
-<h2>Buy Share</h2>
-<form method="post">
-  {% csrf_token %}
-  {% for field in form %}
-    <p>
-      {{ field.label_tag }}<br>
-      {{ field }}
-  </p>
-</br>
-{% endfor %}
-<button type="submit">Update</button>
-</form>
-{% endblock %}
+
+{% include 'snippets/nav.html' %}
+<style>
+.contact-form input, select {
+    display: inline-block;
+    background: none;
+    border: 1px solid #8D8D8D;
+    width: 100%;
+    outline: none;
+    font-size: 1em;
+    color: #8D8D8D;
+    padding: .8em 1em;
+    -webkit-appearance: none;
+}
+
+</style>
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
+  <!--contact-->
+	<div class="contact">
+		<div class="container">
+			<div class=" contact-form">
+				<h3>Update Land Profile</h3>
+				<form method="post">
+					<div class="col-md-6 form-grids">
+            {% csrf_token %}
+            {% for field in form %}
+            <p>
+            {{ field.label_tag }}<br>
+            {{ field }}
+            </p>
+            </br>
+            {% endfor %}
+
+            <br><br><center><button class="btn btn-1 btn-1d" type="submit"> Update</button></center>
+          </div>
+
+
+                      <center><div  align="center" class="col-md-6 form-grids">
+                        <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Geocoding service</title>
+            <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+            <meta charset="utf-8">
+            <style>
+              /* Always set the map height explicitly to define the size of the div
+               * element that contains the map. */
+              #map {
+                height: 200%;
+                width:  200%;
+              }
+
+            </style>
+          </head>
+          <body>
+            <div id="floating-panel">
+              <br><input id="address" type="textbox" value="" placeholder="Dhaka, Bangladesh"><br><br><br>
+              <input id="submit" type="button" value="Search for nearest branch"><br><br><br>
+            </div>
+            <div id="map" style="width: 500px; height: 400px;"></div>
+            <script>
+            //var branch=[];
+            var locations = [
+              ['Barishal,kaji para', 22.702921, 90.346597, 4],
+              ['Khulna,Khalispur', 22.845641, 89.540328, 4],
+              ['Rajshahi , Talaimari', 24.363589, 88.624135, 5],
+              ['Sylhet, Rajar Golli', 24.904539, 91.861101, 3],
+              ['Chittagong, Dohajari ', 22.347537, 91.812332, 2],
+              ['Dhaka , Gulshan -2 ', 23.810332, 90.412518, 1]
+            ];
+
+              function initMap() {
+
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 7,
+                  center: {lat: 23.6850, lng: 90.3563}
+                });
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+              marker = new google.maps.Marker({
+              position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+              map: map
+              });
+
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+              return function() {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+              }
+              })(marker, i));
+            }
+                var geocoder = new google.maps.Geocoder();
+
+                document.getElementById('submit').addEventListener('click', function() {
+                  geocodeAddress(geocoder, map);
+                });
+              }
+
+              function geocodeAddress(geocoder, resultsMap) {
+                var address = document.getElementById('address').value;
+                geocoder.geocode({'address': address}, function(results, status) {
+                  if (status === 'OK') {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                      map: resultsMap,
+                      position: results[0].geometry.location
+                    });
+
+
+              var dis = [];
+              for (i = 0; i < locations.length; i++) {
+                dis[i] = _getDistanceFromLatLonInKm(results[0].geometry.location.lat(), results[0].geometry.location.lng(), locations[i][1], locations[i][2]);
+              }
+              for (i = 0; i < locations.length; i++){
+                if(arrayMin(dis)==dis[i])
+              alert(' Nearest Branch from your search place is  ' + locations[i][0]+' . Please contact to this branch  for your inconvenience.');
+
+
+              }
+
+
+              //alert('Min: ' + arrayMin(dis));
+
+                  } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                  }
+                });
+              }
+            function _getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+              var R = 6371; // Radius of the earth in kilometers
+              var dLat = deg2rad(lat2 - lat1); // deg2rad below
+              var dLon = deg2rad(lon2 - lon1);
+              var a =
+              Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+              var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+              var d = R * c; // Distance in KM
+              return d;
+            }
+            function deg2rad(deg) {
+              return deg * (Math.PI / 180)
+            }
+
+            function arrayMin(arr) {
+              var len = arr.length, min = Infinity;
+              while (len--) {
+              if (Number(arr[len]) < min) {
+                min = Number(arr[len]);
+              }
+              }
+              return min;
+            };
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+            </script>
+          </body>
+          </html>
+          <br><br>
+            <font color="red "><p>Note : *** please select the suggested branch for location </p></font>
+          </div></center>
+
+
+					<div class="clearfix"> </div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--//contact-->
+
+{% include 'snippets/footer.html' %}

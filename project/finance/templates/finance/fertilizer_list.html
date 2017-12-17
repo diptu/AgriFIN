@@ -1,19 +1,36 @@
 
-{% extends "base.html" %}
 
-{% block head_title %}Fertilizer List   | {{ block.super}}{% endblock head_title %}
+{% include 'snippets/nav.html' %}
 
-{% block content %}
-<div class="container">
-<h1 align ="center">Fertilizer Information</h1>
+<!--banner-->
+	<div class="banner abt-bnr">
+		{% include 'snippets/header.html' %}
+	</div>
+	<!--//banner-->
 
+  <div class="about">
+		<div class="container">
+			<div class="about-info">
+
+        {% block content %}
+<h3 align ="center">Fertilizer Information</h3>
+<hr>
 <ul class="list-group">
 {% for obj in object_list %}
-    <br><ul align ="center"><a href='/fertilizer/{{ obj.id }}/'>{{ obj }}</a>
+    <br><br><ul align ="center"><a href='/fertilizer/{{ obj.id }}/'  class="btn btn-1 btn-1d">{{ obj }}</a>
 
-    <li class="list-group-item">Price Per Unit (kg):  {{obj.unit_price}} Tk</li>
+  <br><br>  <li class="list-group-item"><p style="font-family:courier;">Price Per Unit (kg):  {{obj.unit_price}} Tk</p></li>
   </li></ul>
-  <br><hr>
+  <br><br>
 {% endfor %}
+<br><br><h4 align="center"><a href='/crop/' class="btn btn-1 btn-1d" >Back </a></h4>
 </ul>
 {% endblock %}
+
+
+</div>
+</div>
+</div>
+
+
+{% include 'snippets/footer.html' %}
